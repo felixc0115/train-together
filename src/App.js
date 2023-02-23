@@ -1,51 +1,28 @@
 import "./App.css";
-import axios from "axios";
-import { useState, useEffect } from "react";
-import Layout from "./layout/Layout";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootPage from "./pages/Root";
+import HomePage from "./pages/Home";
+import ProgramsPage from "./pages/Programs";
+import MyProgramsPage from "./pages/MyPrograms";
+import AddProgramPage from "./pages/AddProgram";
+import ProgramDetailsPage from "./pages/ProgramDetails";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootPage />,
+    children: [
+      { path: "", element: <HomePage /> },
+      { path: "programs", element: <ProgramsPage /> },
+      { path: "myPrograms", element: <MyProgramsPage /> },
+      { path: "addProgram", element: <AddProgramPage /> },
+      { path: "programs/:programId", element: <ProgramDetailsPage /> },
+    ],
+  },
+]);
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState("shoulders");
-  const [searchResults, setSearchResults] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&order=relevance&q=${searchTerm}&key=AIzaSyD4Pj2ZeQ_Cj6ilee97H5_70l902-1-ogM`
-      )
-      .then((response) => {
-        setSearchResults(response.data.items);
-        console.log(searchResults);
-      });
-  }, []);
-
-  return (
-    <Layout>
-      <div>
-        <img
-          src={require("./assets/images/Back-Muscles.JPG")}
-          alt="back muscles"
-        />
-        <img
-          src="/Users/felixchen/Desktop/repos/stretch-buddy/assets/images/Shoulder-Muscles.jpg"
-          alt="shoulder muscles"
-        />
-        <h1>Stretch Buddy</h1>
-        {searchResults.map((result) => (
-          <div>
-            <iframe
-              width="360"
-              height="215"
-              src={`https://www.youtube.com/embed/${result.id.videoId}`}
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-        ))}
-      </div>
-    </Layout>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
