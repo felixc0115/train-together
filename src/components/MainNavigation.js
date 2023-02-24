@@ -73,7 +73,9 @@ const MainNavigation = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <NavLink to="login" className="btn">
+          Login
+        </NavLink>
       </div>
     </div>
   );

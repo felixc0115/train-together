@@ -6,6 +6,7 @@ import MyProgramsPage from "./pages/MyPrograms";
 import AddProgramPage from "./pages/AddProgram";
 import ProgramDetailsPage from "./pages/ProgramDetails";
 import LoginPage from "./pages/Login";
+import createAccountPage from "./pages/createAccount";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <HomePage /> },
       { path: "login", element: <LoginPage /> },
+      { path: "createAccount", element: <createAccountPage /> },
       { path: "programs", element: <ProgramsPage /> },
       { path: "myPrograms", element: <MyProgramsPage /> },
       { path: "addProgram", element: <AddProgramPage /> },
