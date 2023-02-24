@@ -1,5 +1,7 @@
+import ProgramCard from "../components/ProgramCard";
+
 const ProgramsPage = () => {
-  return <h1>Programs</h1>;
+  return <ProgramCard />;
 };
 
 export default ProgramsPage;

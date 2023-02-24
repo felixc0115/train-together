@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const HomePage = () => {
   return (
     <>
@@ -16,7 +18,9 @@ const HomePage = () => {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <NavLink to="createAccount">
+              <button className="btn btn-primary">Get Started</button>
+            </NavLink>
           </div>
         </div>
       </div>
