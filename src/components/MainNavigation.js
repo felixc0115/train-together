@@ -55,7 +55,9 @@ const MainNavigation = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Stretch Buddy</a>
+        <NavLink to="" className="btn btn-ghost normal-case text-xl">
+          Stretch Buddy
+        </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

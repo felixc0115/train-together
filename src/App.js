@@ -5,6 +5,7 @@ import ProgramsPage from "./pages/Programs";
 import MyProgramsPage from "./pages/MyPrograms";
 import AddProgramPage from "./pages/AddProgram";
 import ProgramDetailsPage from "./pages/ProgramDetails";
+import LoginPage from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
     element: <RootPage />,
     children: [
       { path: "", element: <HomePage /> },
+      { path: "login", element: <LoginPage /> },
       { path: "programs", element: <ProgramsPage /> },
       { path: "myPrograms", element: <MyProgramsPage /> },
       { path: "addProgram", element: <AddProgramPage /> },
