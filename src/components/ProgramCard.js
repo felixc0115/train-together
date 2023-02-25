@@ -1,11 +1,8 @@
 const ProgramCard = () => {
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
-      <figure>
-        <img
-          src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-          alt="Shoes"
-        />
+    <div className="card w-80 bg-base-90 shadow-xl card-compact card-bordered ">
+      <figure className="">
+        <img src="https://img.youtube.com/vi/jj2AAH6jbHk/0.jpg" alt="Shoes" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
