@@ -6,13 +6,14 @@ const ProgramCard = () => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">
-          Shoes!
-          <div className="badge badge-secondary">NEW</div>
+          Hip Mobility
+          <div className="badge badge-outline">Mobility</div>
+          <div className="badge badge-outline">25 mins</div>
         </h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+        <p>Mobility routine to work on your hips!</p>
+        <div className="">
+          <button className="btn btn-primary p-0">Favorite</button>
+          <button className="btn btn-secondary py-0">View</button>
         </div>
       </div>
     </div>
