@@ -11,9 +11,9 @@ const ProgramCard = () => {
           <div className="badge badge-outline">25 mins</div>
         </h2>
         <p>Mobility routine to work on your hips!</p>
-        <div className="">
-          <button className="btn btn-primary p-0">Favorite</button>
-          <button className="btn btn-secondary py-0">View</button>
+        <div className="card-actions justify-end mt-5">
+          <button className="btn btn-primary btn-outline">View</button>
+          <button className="btn btn-secondary btn-outline">Favorite</button>
         </div>
       </div>
     </div>
