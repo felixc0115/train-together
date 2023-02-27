@@ -7,13 +7,13 @@ const ProgramCard = () => {
       <div className="card-body">
         <h2 className="card-title">
           Hip Mobility
-          <div className="badge badge-outline">Mobility</div>
-          <div className="badge badge-outline">25 mins</div>
+          <div className="badge badge-outline  ">Mobility</div>
+          <div className="badge badge-outline ">25 mins</div>
         </h2>
         <p>Mobility routine to work on your hips!</p>
         <div className="card-actions justify-end mt-5">
-          <button className="btn btn-primary btn-outline">View</button>
-          <button className="btn btn-secondary btn-outline">Favorite</button>
+          <button className="btn btn-primary ">View</button>
+          <button className="btn btn-secondary">Favorite</button>
         </div>
       </div>
     </div>
