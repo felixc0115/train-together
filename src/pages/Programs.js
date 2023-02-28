@@ -2,11 +2,7 @@ import ProgramCard from "../components/ProgramCard";
 
 const ProgramsPage = () => {
   return (
-    // <div>
-    //   <ProgramCard />
-    //   <ProgramCard />
-    // </div>
-    <div className="flex w-full gap-5 mx-5 my-7 flex-wrap justify-center">
+    <div className="flex w-full gap-5 mx-auto my-7 flex-wrap justify-center">
       <ProgramCard />
       <ProgramCard />
       <ProgramCard />
