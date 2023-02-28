@@ -1,6 +1,6 @@
 const AddProgramPage = () => {
   return (
-    <div className="flex w-full justify-left">
+    <div className="flex w-full mx-auto my-7 mx-auto">
       <form>
         <div className="form-control mb-3">
           <label className="input-group input-group-s">
