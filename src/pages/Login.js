@@ -39,12 +39,16 @@ const LoginPage = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary mb-3" onClick={loginHandler}>
+            <NavLink
+              to="/myPrograms"
+              className="btn btn-primary mb-3"
+              onClick={loginHandler}
+            >
               Login
-            </button>
-            <button className="btn btn-secondary">
-              <NavLink to="/createAccount">Create Account</NavLink>
-            </button>
+            </NavLink>
+            <NavLink className="btn btn-secondary" to="/createAccount">
+              Create Account
+            </NavLink>
           </div>
         </div>
       </div>
