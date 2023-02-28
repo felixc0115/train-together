@@ -46,7 +46,7 @@ const MainNavigation = () => {
           </ul>
         </div>
         <NavLink to="" className="btn btn-ghost normal-case text-xl">
-          Stretch Buddy
+          Train Together{" "}
         </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
