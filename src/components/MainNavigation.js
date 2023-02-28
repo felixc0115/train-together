@@ -4,7 +4,7 @@ import { authActions } from "../store/auth";
 
 const MainNavigation = () => {
   const dispatch = useDispatch();
-  const loginStatus = useSelector((state) => state.auth.isAuthenticated);
+  const isLoggedIn = useSelector((state) => state.auth.isAuthenticated);
 
   const logoutHandler = () => {
     dispatch(authActions.logout());
@@ -37,9 +37,12 @@ const MainNavigation = () => {
             <li>
               <NavLink to="programs">Explore</NavLink>
             </li>
-            <li>
-              <NavLink to="myPrograms">My Programs</NavLink>
-            </li>
+            {isLoggedIn && (
+              <li>
+                <NavLink to="myPrograms">My Programs</NavLink>
+              </li>
+            )}
+
             <li>
               <NavLink to="addPrograms">Add Program</NavLink>
             </li>
@@ -54,16 +57,20 @@ const MainNavigation = () => {
           <li>
             <NavLink to="programs">Explore</NavLink>
           </li>
-          <li>
-            <NavLink to="myPrograms">My Programs</NavLink>
-          </li>
-          <li>
-            <NavLink to="addProgram">Add Program</NavLink>
-          </li>
+          {isLoggedIn && (
+            <li>
+              <NavLink to="myPrograms">My Programs</NavLink>
+            </li>
+          )}
+          {isLoggedIn && (
+            <li>
+              <NavLink to="addProgram">Add Program</NavLink>
+            </li>
+          )}
         </ul>
       </div>
       <div className="navbar-end">
-        {loginStatus ? (
+        {isLoggedIn ? (
           <NavLink onClick={logoutHandler} className="btn">
             Logout{" "}
           </NavLink>

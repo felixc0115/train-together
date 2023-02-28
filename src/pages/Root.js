@@ -4,11 +4,11 @@ import Footer from "../components/Footer";
 
 const RootPage = () => {
   return (
-    <>
+    <div>
       <MainNavigation />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 };
 

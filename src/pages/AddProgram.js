@@ -55,6 +55,22 @@ const AddProgramPage = () => {
               <option>Workout</option>
             </select>
           </div>
+        </div>{" "}
+        <div className="form-control mb-5">
+          <div className="input-group">
+            <select className="select select-bordered">
+              <option disabled selected>
+                Pick program duration (minutes)
+              </option>
+              <option>varies</option>
+              <option>5</option>
+              <option>10</option>
+              <option>15</option>
+              <option>20</option>
+              <option>25</option>
+              <option>30</option>
+            </select>
+          </div>
         </div>
         <button className="btn btn-primary">Submit</button>
       </form>
