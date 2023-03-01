@@ -48,23 +48,23 @@ const MainNavigation = () => {
             </li>
           </ul>
         </div>
-        <NavLink to="" className="btn btn-ghost normal-case text-xl">
-          Train Together{" "}
+        <NavLink to="" className="font-mono normal-case text-2xl">
+          train together
         </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <NavLink to="programs">Explore</NavLink>
+            <NavLink to="programs">explore</NavLink>
           </li>
           {isLoggedIn && (
             <li>
-              <NavLink to="myPrograms">My Programs</NavLink>
+              <NavLink to="myPrograms">my programs</NavLink>
             </li>
           )}
           {isLoggedIn && (
             <li>
-              <NavLink to="addProgram">Add Program</NavLink>
+              <NavLink to="addProgram">add program</NavLink>
             </li>
           )}
         </ul>
@@ -72,7 +72,7 @@ const MainNavigation = () => {
       <div className="navbar-end">
         {isLoggedIn ? (
           <NavLink onClick={logoutHandler} className="btn">
-            Logout{" "}
+            logout{" "}
           </NavLink>
         ) : (
           <NavLink to="login" className="btn">
