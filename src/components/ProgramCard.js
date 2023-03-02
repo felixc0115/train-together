@@ -1,6 +1,6 @@
 const ProgramCard = ({ program }) => {
   return (
-    <div className="card w-80 bg-base-90 shadow-xl card-compact card-bordered ">
+    <div className="card w-100 bg-base-100 shadow-xl card-compact card-bordered ">
       <figure className="">
         <img src={program.youtubeLink} alt="video thumbnail" />
       </figure>

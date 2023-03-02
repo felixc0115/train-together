@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { authActions } from "../store/auth";
+import { authActions } from "../store/auth-slice";
 
 const MainNavigation = () => {
   const dispatch = useDispatch();

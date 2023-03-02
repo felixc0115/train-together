@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { authActions } from "../store/auth";
+import { authActions } from "../store/auth-slice";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
