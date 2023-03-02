@@ -1,16 +1,18 @@
-const ProgramCard = () => {
+const ProgramCard = ({ program }) => {
   return (
     <div className="card w-80 bg-base-90 shadow-xl card-compact card-bordered ">
       <figure className="">
-        <img src="https://img.youtube.com/vi/jj2AAH6jbHk/0.jpg" alt="Shoes" />
+        <img src={program.youtubeLink} alt="video thumbnail" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
-          Hip Mobility
-          <div className="badge badge-outline  ">Mobility</div>
-          <div className="badge badge-outline ">25 mins</div>
+          {program.title}
+          <div className="badge badge-outline  ">{program.category}</div>
+          <div className="badge badge-outline ">
+            {`${program.durationInMins}mins`}
+          </div>
         </h2>
-        <p>Mobility routine to work on your hips!</p>
+        <p>{program.description}</p>
         <div className="card-actions justify-end mt-5">
           <button className="btn btn-primary ">View</button>
           <button className="btn btn-secondary">Favorite</button>
