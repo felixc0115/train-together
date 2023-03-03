@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 const RootPage = () => {
   return (
-    <div>
+    <div className="flex-col min-h-screen	">
       <MainNavigation />
       <Outlet />
       <Footer />

@@ -6,7 +6,8 @@ import MyProgramsPage from "./pages/MyPrograms";
 import AddProgramPage from "./pages/AddProgram";
 import ProgramDetailsPage from "./pages/ProgramDetails";
 import LoginPage from "./pages/Login";
-import createAccountPage from "./pages/createAccount";
+// eslint-disable-next-line no-unused-vars
+import createAccountPage from "./pages/CreateAccount";
 
 const router = createBrowserRouter([
   {
