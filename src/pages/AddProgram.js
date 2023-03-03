@@ -17,7 +17,7 @@ const AddProgramPage = () => {
   const addProgramHandler = (event) => {
     event.preventDefault();
     const newProgram = {
-      youtubeLink: `https://img.youtube.com/vi/${youtubeLinkRef.current.value}/0.jpg`,
+      youtubeLink: `https://img.youtube.com/vi/${youtubeLinkRef.current.value}/hqdefault.jpg`,
       title: titleRef.current.value,
       description: "Mobility routine to work on your hips!",
       exercises: [
