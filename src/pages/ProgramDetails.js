@@ -1,7 +1,18 @@
+import YoutubeEmbed from "../components/YoutubeEmbed";
+
 const ProgramDetailsPage = () => {
   return (
-    <div className="hero min-h-screen bg-base-100">
-      <h1>Program Details Page</h1>
+    <div className="min-h-screen bg-base-100 my-7">
+      <h1>hip mobility</h1>
+      <p>
+        Uploaded by: felix | category: mobility | duration: 15 mins | 20 people
+        training
+      </p>
+      <YoutubeEmbed embedId="rokGy0huYEA" />
+      <h2>Exercises:</h2>
+      <ul>
+        <li>1:23 figure 4 stretch 3x 30 seconds</li>
+      </ul>
     </div>
   );
 };

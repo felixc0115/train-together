@@ -39,12 +39,12 @@ const MainNavigation = () => {
             </li>
             {isLoggedIn && (
               <li>
-                <NavLink to="myPrograms">My Programs</NavLink>
+                <NavLink to="my-programs">My Programs</NavLink>
               </li>
             )}
 
             <li>
-              <NavLink to="addPrograms">Add Program</NavLink>
+              <NavLink to="add-program">Add Program</NavLink>
             </li>
           </ul>
         </div>
@@ -59,12 +59,12 @@ const MainNavigation = () => {
           </li>
           {isLoggedIn && (
             <li>
-              <NavLink to="myPrograms">my programs</NavLink>
+              <NavLink to="my-programs">my programs</NavLink>
             </li>
           )}
           {isLoggedIn && (
             <li>
-              <NavLink to="addProgram">add program</NavLink>
+              <NavLink to="add-program">add program</NavLink>
             </li>
           )}
         </ul>

@@ -40,13 +40,13 @@ const LoginPage = () => {
           </div>
           <div className="form-control mt-6">
             <NavLink
-              to="/myPrograms"
+              to="/my-programs"
               className="btn btn-primary mb-3"
               onClick={loginHandler}
             >
               Login
             </NavLink>
-            <NavLink className="btn btn-secondary" to="/createAccount">
+            <NavLink className="btn btn-secondary" to="/create-account">
               Create Account
             </NavLink>
           </div>

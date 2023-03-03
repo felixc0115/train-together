@@ -16,10 +16,10 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <HomePage /> },
       { path: "login", element: <LoginPage /> },
-      { path: "createAccount", element: <createAccountPage /> },
+      { path: "create-account", element: <createAccountPage /> },
       { path: "programs", element: <ProgramsPage /> },
-      { path: "myPrograms", element: <MyProgramsPage /> },
-      { path: "addProgram", element: <AddProgramPage /> },
+      { path: "my-programs", element: <MyProgramsPage /> },
+      { path: "add-program", element: <AddProgramPage /> },
       { path: "programs/:programId", element: <ProgramDetailsPage /> },
     ],
   },
