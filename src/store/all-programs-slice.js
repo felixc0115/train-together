@@ -29,6 +29,11 @@ const allPrograms = createSlice({
     programs: DUMMY_PROGRAMS,
     totalPrograms: 0,
   },
+  reducers: {
+    addProgram(state, action) {
+      state.programs.push(action.payload);
+    },
+  },
 });
 
 export const allProgramsActions = allPrograms.actions;
