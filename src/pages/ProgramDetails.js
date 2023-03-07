@@ -11,7 +11,7 @@ const ProgramDetailsPage = () => {
       <YoutubeEmbed embedId="rokGy0huYEA" />
       <h2>Exercises:</h2>
       <ul>
-        <li>1:23 figure 4 stretch 3x 30 seconds</li>
+        <li>figure 4 stretch 3x 30 seconds (1:23)</li>
       </ul>
     </div>
   );
