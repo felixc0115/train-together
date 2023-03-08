@@ -1,18 +1,30 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
 require("dotenv").config({ path: "./config.env" });
-const port = process.env.PORT || 4000;
-app.use(cors());
-app.use(express.json());
-app.use(require("./routes/record"));
-// get driver connection
-const dbo = require("./db/conn");
+const express = require("express");
+const mongoose = require("mongoose");
+const app = express();
+const workoutRoutes = require("./routes/programs");
 
-app.listen(port, () => {
-  // perform a database connection when server starts
-  dbo.connectToServer(function (err) {
-    if (err) console.error(err);
-  });
-  console.log(`Server is running on port: ${port}`);
+//middleware
+
+app.use(express.json());
+
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
 });
+
+//ROUTES
+app.use("/api/programs", workoutRoutes);
+
+//connect to db
+mongoose
+  .connect(process.env.ATLAS_URI)
+  .then(() => {
+    app.listen(process.env.PORT, () => {
+      console.log("listening on port ", process.env.PORT);
+      console.log("connected to db");
+    });
+  })
+  .catch((error) => {
+    console.error(error);
+  });
