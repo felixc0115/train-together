@@ -1,18 +1,17 @@
 const express = require("express");
+const {
+  createProgram,
+  getProgram,
+  getPrograms,
+} = require("../controllers/programController");
 const router = express.Router();
 
 //get all workouts
-router.get("/", (req, res) => {
-  res.json({ mssg: "GET all programs" });
-});
+router.get("/", getPrograms);
 
-router.get("/:id", (req, res) => {
-  res.json({ mssg: "GET one program" });
-});
+router.get("/:id", getProgram);
 
-router.post("/", (req, res) => {
-  res.json({ mssg: "POST a new program" });
-});
+router.post("/", createProgram);
 
 router.delete("/:id", (req, res) => {
   res.json({ mssg: "DELETE a new program" });
