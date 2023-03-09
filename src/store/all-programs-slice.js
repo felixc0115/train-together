@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const DUMMY_PROGRAMS = [
   {
-    youtubeLink: "https://img.youtube.com/vi/jj2AAH6jbHk/0.jpg",
+    youtubeLink: "https://www.youtube.com/watch?v=jj2AAH6jbHk",
     title: "hip mobility",
     description: "Mobility routine to work on your hips!",
     exercises: [
@@ -12,7 +12,7 @@ const DUMMY_PROGRAMS = [
     durationInMins: 15,
   },
   {
-    youtubeLink: "https://img.youtube.com/vi/eQHmKJh20_c/0.jpg",
+    youtubeLink: "https://www.youtube.com/watch?v=eQHmKJh20_c",
     title: "general stretches",
     description: "stretch routine for general well being!",
     exercises: [
@@ -31,7 +31,8 @@ const allPrograms = createSlice({
   },
   reducers: {
     replaceProgram(state, action) {
-      state.programs = action.payload;
+      state.programs = action.payload.programs;
+      state.totalPrograms = action.payload.totalPrograms;
     },
     addProgram(state, action) {
       state.programs.push(action.payload);

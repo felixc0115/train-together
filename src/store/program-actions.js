@@ -1,3 +1,5 @@
+import { allProgramsActions } from "./all-programs-slice";
+
 export const fetchProgramData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
@@ -9,8 +11,17 @@ export const fetchProgramData = () => {
       const data = await response.json();
       return data;
     };
+
     try {
       const programData = await fetchData();
-    } catch (error) {}
+      dispatch(
+        allProgramsActions.replaceProgram({
+          programs: programData.programs,
+          totalPrograms: programData.totalPrograms,
+        })
+      );
+    } catch (error) {
+      alert("Fetching program data failed");
+    }
   };
 };

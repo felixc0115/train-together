@@ -4,7 +4,12 @@ const ProgramCard = ({ program }) => {
   return (
     <div className="card w-80 bg-base-80 shadow-xl card-compact card-bordered ">
       <figure className="">
-        <img src={program.youtubeLink} alt="video thumbnail" />
+        <img
+          src={`https://img.youtube.com/vi/${
+            program.youtubeLink.split("=")[1]
+          }/0.jpg`}
+          alt="video thumbnail"
+        />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
