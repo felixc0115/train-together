@@ -30,6 +30,9 @@ const allPrograms = createSlice({
     totalPrograms: 0,
   },
   reducers: {
+    replaceProgram(state, action) {
+      state.programs = action.payload;
+    },
     addProgram(state, action) {
       state.programs.push(action.payload);
     },

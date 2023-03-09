@@ -66,6 +66,19 @@ const updateProgram = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "No such program" });
   }
+
+  const program = await Program.findOneAndUpdate(
+    { _id: id },
+    {
+      ...req.body,
+    }
+  );
+
+  if (!program) {
+    return res.status(404).json({ error: "No such program" });
+  }
+
+  res.status(200).json(program);
 };
 
 module.exports = {
@@ -73,4 +86,5 @@ module.exports = {
   getPrograms,
   getProgram,
   deleteProgram,
+  updateProgram,
 };

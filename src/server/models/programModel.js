@@ -1,3 +1,5 @@
+//this file enforces the schema for documents
+
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
