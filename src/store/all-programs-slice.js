@@ -26,7 +26,7 @@ const DUMMY_PROGRAMS = [
 const allPrograms = createSlice({
   name: "allPrograms",
   initialState: {
-    programs: DUMMY_PROGRAMS,
+    programs: [],
     totalPrograms: 0,
   },
   reducers: {

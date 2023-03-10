@@ -28,21 +28,12 @@ const router = createBrowserRouter([
   },
 ]);
 
-let isInitial = true;
-
 function App() {
   const dispatch = useDispatch();
-  const programs = useSelector((state) => state.allPrograms.programs);
 
   useEffect(() => {
     dispatch(fetchProgramData());
   }, [dispatch]);
-
-  useEffect(() => {
-    if (isInitial) {
-      isInitial = false;
-    }
-  });
 
   return <RouterProvider router={router} />;
 }
