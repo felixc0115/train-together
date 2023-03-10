@@ -26,15 +26,17 @@ const getProgram = async (req, res) => {
 
 // create a new program
 const createProgram = async (req, res) => {
-  const { title, youtubeLink, category, duration } = req.body;
+  const { title, youtubeLink, category, durationInMins, description } =
+    req.body;
 
   // add document to db
   try {
     const program = await Program.create({
       title,
       category,
-      duration,
+      durationInMins,
       youtubeLink,
+      description,
     });
     res.status(200).json(program);
   } catch (error) {

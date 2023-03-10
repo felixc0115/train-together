@@ -32,7 +32,7 @@ const allPrograms = createSlice({
   reducers: {
     replaceProgram(state, action) {
       state.programs = action.payload.programs;
-      state.totalPrograms = action.payload.totalPrograms;
+      state.totalPrograms = action.payload.programs.length;
     },
     addProgram(state, action) {
       state.programs.push(action.payload);

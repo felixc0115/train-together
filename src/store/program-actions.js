@@ -3,7 +3,7 @@ import { allProgramsActions } from "./all-programs-slice";
 export const fetchProgramData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:4000/api/programs");
+      const response = await fetch("/api/programs");
 
       if (!response.ok) {
         throw new Error("Could not fetch programs");
@@ -16,8 +16,7 @@ export const fetchProgramData = () => {
       const programData = await fetchData();
       dispatch(
         allProgramsActions.replaceProgram({
-          programs: programData.programs,
-          totalPrograms: programData.totalPrograms,
+          programs: programData,
         })
       );
     } catch (error) {

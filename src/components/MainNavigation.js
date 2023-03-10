@@ -5,6 +5,7 @@ import { authActions } from "../store/auth-slice";
 const MainNavigation = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.isAuthenticated);
+  const totalPrograms = useSelector((state) => state.allPrograms.totalPrograms);
 
   const logoutHandler = () => {
     dispatch(authActions.logout());
@@ -35,16 +36,16 @@ const MainNavigation = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <NavLink to="programs">Explore</NavLink>
+              <NavLink to="programs">explore{totalPrograms}</NavLink>
             </li>
             {isLoggedIn && (
               <li>
-                <NavLink to="my-programs">My Programs</NavLink>
+                <NavLink to="my-programs">my programs</NavLink>
               </li>
             )}
 
             <li>
-              <NavLink to="add-program">Add Program</NavLink>
+              <NavLink to="add-program">add program</NavLink>
             </li>
           </ul>
         </div>
@@ -55,7 +56,7 @@ const MainNavigation = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <NavLink to="programs">explore</NavLink>
+            <NavLink to="programs">explore ({totalPrograms})</NavLink>
           </li>
           {isLoggedIn && (
             <li>

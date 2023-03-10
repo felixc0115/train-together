@@ -8,6 +8,9 @@ import ProgramDetailsPage from "./pages/ProgramDetails";
 import LoginPage from "./pages/Login";
 // eslint-disable-next-line no-unused-vars
 import createAccountPage from "./pages/CreateAccount";
+import { fetchProgramData } from "./store/program-actions";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +28,22 @@ const router = createBrowserRouter([
   },
 ]);
 
+let isInitial = true;
+
 function App() {
+  const dispatch = useDispatch();
+  const programs = useSelector((state) => state.allPrograms.programs);
+
+  useEffect(() => {
+    dispatch(fetchProgramData());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (isInitial) {
+      isInitial = false;
+    }
+  });
+
   return <RouterProvider router={router} />;
 }
 

@@ -1,5 +1,6 @@
 //this file enforces the schema for documents
 
+const { string } = require("i/lib/util");
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
@@ -18,7 +19,11 @@ const programSchema = new Schema(
       type: String,
       required: true,
     },
-    duration: {
+    durationInMins: {
+      type: String,
+      required: true,
+    },
+    description: {
       type: String,
       required: true,
     },
