@@ -27,8 +27,7 @@ const AddProgramPage = () => {
       category: categoryRef.current.value,
       durationInMins: durationRef.current.value,
     };
-    dispatch(allProgramsActions.addProgram(newProgram));
-    sendProgramData(newProgram);
+    dispatch(sendProgramData(newProgram));
     navigate("/programs");
   };
 

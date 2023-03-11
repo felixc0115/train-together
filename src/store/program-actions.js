@@ -26,7 +26,7 @@ export const fetchProgramData = () => {
 };
 
 export const sendProgramData = (newProgram) => {
-  return async () => {
+  return async (dispatch) => {
     const sendRequest = async () => {
       const response = await fetch("/api/programs", {
         method: "POST",
@@ -41,8 +41,8 @@ export const sendProgramData = (newProgram) => {
       }
     };
     try {
+      dispatch(allProgramsActions.addProgram(newProgram));
       await sendRequest();
-      console.log("hello");
     } catch (error) {
       console.error(error);
     }
