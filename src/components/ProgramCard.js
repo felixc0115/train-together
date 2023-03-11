@@ -12,13 +12,13 @@ const ProgramCard = ({ program }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
-          {program.title}
+        <h2 className="card-title">{program.title}</h2>
+        <div>
           <div className="badge badge-outline  ">{program.category}</div>
-          <div className="badge badge-outline ">
-            {`${program.durationInMins}mins`}
+          <div className="badge badge-outline  ">
+            {`${program.durationInMins}mins`}{" "}
           </div>
-        </h2>
+        </div>
         <p>{program.description}</p>
         <div className="card-actions justify-end mt-5">
           <button className="btn btn-primary ">View</button>

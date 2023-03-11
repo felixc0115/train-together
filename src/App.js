@@ -8,9 +8,9 @@ import ProgramDetailsPage from "./pages/ProgramDetails";
 import LoginPage from "./pages/Login";
 // eslint-disable-next-line no-unused-vars
 import createAccountPage from "./pages/CreateAccount";
-import { fetchProgramData } from "./store/program-actions";
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { fetchProgramData } from "./store/program-actions";
 
 const router = createBrowserRouter([
   {

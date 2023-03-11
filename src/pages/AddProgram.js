@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { allProgramsActions } from "../store/all-programs-slice";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { sendProgramData } from "../store/program-actions";
 
 const AddProgramPage = () => {
   const dispatch = useDispatch();
@@ -17,9 +18,9 @@ const AddProgramPage = () => {
   const addProgramHandler = (event) => {
     event.preventDefault();
     const newProgram = {
-      youtubeLink: `https://img.youtube.com/vi/${youtubeLinkRef.current.value}/hqdefault.jpg`,
+      youtubeLink: youtubeLinkRef.current.value,
       title: titleRef.current.value,
-      description: "Mobility routine to work on your hips!",
+      description: descriptionRef.current.value,
       exercises: [
         { name: "figure 4 stretch", sets: 3, repsOrDurationPerSet: 30 },
       ],
@@ -27,6 +28,7 @@ const AddProgramPage = () => {
       durationInMins: durationRef.current.value,
     };
     dispatch(allProgramsActions.addProgram(newProgram));
+    sendProgramData(newProgram);
     navigate("/programs");
   };
 
@@ -40,6 +42,17 @@ const AddProgramPage = () => {
               ref={titleRef}
               type="text"
               placeholder="hip mobility routine"
+              className="input input-bordered"
+            />
+          </label>
+        </div>
+        <div className="form-control mb-3">
+          <label className="input-group input-group-s">
+            <span>program description</span>
+            <input
+              ref={descriptionRef}
+              type="text"
+              placeholder="mobility routine to work on your hips!"
               className="input input-bordered"
             />
           </label>
