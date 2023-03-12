@@ -1,6 +1,5 @@
 import ExerciseDetail from "../components/ExerciseDetail";
 import { useDispatch } from "react-redux";
-import { allProgramsActions } from "../store/all-programs-slice";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { sendProgramData } from "../store/program-actions";
@@ -14,14 +13,23 @@ const AddProgramPage = () => {
   const descriptionRef = useRef();
   const categoryRef = useRef();
   const durationRef = useRef();
+  const exerciseOneNameRef = useRef();
+  const exerciseOneSetRef = useRef();
+  const exerciseOneRepOrTimeRef = useRef();
 
   const addProgramHandler = (event) => {
     event.preventDefault();
+
     const newProgram = {
       youtubeLink: youtubeLinkRef.current.value,
       title: titleRef.current.value,
       description: descriptionRef.current.value,
       exercises: [
+        {
+          name: exerciseOneNameRef.current.value,
+          sets: exerciseOneSetRef.current.value,
+          repsOrDurationPerSet: exerciseOneRepOrTimeRef.current.value,
+        },
         { name: "figure 4 stretch", sets: 3, repsOrDurationPerSet: 30 },
       ],
       category: categoryRef.current.value,
@@ -89,7 +97,11 @@ const AddProgramPage = () => {
             />
           </label>
         </div>
-        <ExerciseDetail />
+        <ExerciseDetail
+          forwardedNameRef={exerciseOneNameRef}
+          forwardedSetRef={exerciseOneSetRef}
+          forwardedRepsOrTimeRef={exerciseOneRepOrTimeRef}
+        />
         <ExerciseDetail />
         <ExerciseDetail />
         <ExerciseDetail />
