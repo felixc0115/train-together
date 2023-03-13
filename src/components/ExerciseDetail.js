@@ -5,10 +5,6 @@ const ExerciseDetail = ({
   forwardedSetRef,
   forwardedRepsOrTimeRef,
 }) => {
-  const nameRef = useRef();
-  const setRef = useRef();
-  const repOrTimeRef = useRef();
-
   return (
     <div className="form-control mb-3">
       <label className="input-group input-group-s">
