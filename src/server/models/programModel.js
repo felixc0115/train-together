@@ -27,8 +27,14 @@ const programSchema = new Schema(
       required: true,
     },
     exercises: {
-      type: Array,
-      required: true,
+      type: [
+        new Schema({
+          name: String,
+          sets: String,
+          repsOrDurationPerSet: String,
+        }),
+      ],
+      default: undefined,
     },
   },
   { timestamps: true }

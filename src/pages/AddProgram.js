@@ -8,14 +8,14 @@ const AddProgramPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const titleRef = useRef();
-  const youtubeLinkRef = useRef();
-  const descriptionRef = useRef();
-  const categoryRef = useRef();
-  const durationRef = useRef();
-  const exerciseOneNameRef = useRef();
-  const exerciseOneSetRef = useRef();
-  const exerciseOneRepOrTimeRef = useRef();
+  const titleRef = useRef(null);
+  const youtubeLinkRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const categoryRef = useRef(null);
+  const durationRef = useRef(null);
+  const exerciseOneNameRef = useRef(null);
+  const exerciseOneSetRef = useRef(null);
+  const exerciseOneRepOrTimeRef = useRef(null);
 
   const addProgramHandler = (event) => {
     event.preventDefault();
@@ -30,7 +30,6 @@ const AddProgramPage = () => {
           sets: exerciseOneSetRef.current.value,
           repsOrDurationPerSet: exerciseOneRepOrTimeRef.current.value,
         },
-        { name: "figure 4 stretch", sets: 3, repsOrDurationPerSet: 30 },
       ],
       category: categoryRef.current.value,
       durationInMins: durationRef.current.value,

@@ -41,8 +41,8 @@ export const sendProgramData = (newProgram) => {
       }
     };
     try {
-      dispatch(allProgramsActions.addProgram(newProgram));
       await sendRequest();
+      dispatch(allProgramsActions.addProgram(newProgram));
     } catch (error) {
       console.error(error);
     }
