@@ -13,9 +13,31 @@ const AddProgramPage = () => {
   const descriptionRef = useRef(null);
   const categoryRef = useRef(null);
   const durationRef = useRef(null);
+
   const exerciseOneNameRef = useRef(null);
   const exerciseOneSetRef = useRef(null);
   const exerciseOneRepOrTimeRef = useRef(null);
+  const exerciseOneTimestampRef = useRef(null);
+
+  const exerciseTwoNameRef = useRef(null);
+  const exerciseTwoSetRef = useRef(null);
+  const exerciseTwoRepOrTimeRef = useRef(null);
+  const exerciseTwoTimestampRef = useRef(null);
+
+  const exerciseThreeNameRef = useRef(null);
+  const exerciseThreeSetRef = useRef(null);
+  const exerciseThreeRepOrTimeRef = useRef(null);
+  const exerciseThreeTimestampRef = useRef(null);
+
+  const exerciseFourNameRef = useRef(null);
+  const exerciseFourSetRef = useRef(null);
+  const exerciseFourRepOrTimeRef = useRef(null);
+  const exerciseFourTimestampRef = useRef(null);
+
+  const exerciseFiveNameRef = useRef(null);
+  const exerciseFiveSetRef = useRef(null);
+  const exerciseFiveRepOrTimeRef = useRef(null);
+  const exerciseFiveTimestampRef = useRef(null);
 
   const addProgramHandler = (event) => {
     event.preventDefault();
@@ -29,6 +51,31 @@ const AddProgramPage = () => {
           name: exerciseOneNameRef.current.value,
           sets: exerciseOneSetRef.current.value,
           repsOrDurationPerSet: exerciseOneRepOrTimeRef.current.value,
+          timestamp: exerciseOneTimestampRef.current.value,
+        },
+        {
+          name: exerciseTwoNameRef.current.value,
+          sets: exerciseTwoSetRef.current.value,
+          repsOrDurationPerSet: exerciseTwoRepOrTimeRef.current.value,
+          timestamp: exerciseTwoTimestampRef.current.value,
+        },
+        {
+          name: exerciseThreeNameRef.current.value,
+          sets: exerciseThreeSetRef.current.value,
+          repsOrDurationPerSet: exerciseThreeRepOrTimeRef.current.value,
+          timestamp: exerciseThreeTimestampRef.current.value,
+        },
+        {
+          name: exerciseFourNameRef.current.value,
+          sets: exerciseFourSetRef.current.value,
+          repsOrDurationPerSet: exerciseFourRepOrTimeRef.current.value,
+          timestamp: exerciseFourTimestampRef.current.value,
+        },
+        {
+          name: exerciseFiveNameRef.current.value,
+          sets: exerciseFiveSetRef.current.value,
+          repsOrDurationPerSet: exerciseFiveRepOrTimeRef.current.value,
+          timestamp: exerciseFiveTimestampRef.current.value,
         },
       ],
       category: categoryRef.current.value,
@@ -100,11 +147,32 @@ const AddProgramPage = () => {
           forwardedNameRef={exerciseOneNameRef}
           forwardedSetRef={exerciseOneSetRef}
           forwardedRepsOrTimeRef={exerciseOneRepOrTimeRef}
+          forwardedTimestampRef={exerciseOneTimestampRef}
         />
-        <ExerciseDetail />
-        <ExerciseDetail />
-        <ExerciseDetail />
-        <ExerciseDetail />
+        <ExerciseDetail
+          forwardedNameRef={exerciseTwoNameRef}
+          forwardedSetRef={exerciseTwoSetRef}
+          forwardedRepsOrTimeRef={exerciseTwoRepOrTimeRef}
+          forwardedTimestampRef={exerciseTwoTimestampRef}
+        />
+        <ExerciseDetail
+          forwardedNameRef={exerciseThreeNameRef}
+          forwardedSetRef={exerciseThreeSetRef}
+          forwardedRepsOrTimeRef={exerciseThreeRepOrTimeRef}
+          forwardedTimestampRef={exerciseThreeTimestampRef}
+        />
+        <ExerciseDetail
+          forwardedNameRef={exerciseFourNameRef}
+          forwardedSetRef={exerciseFourSetRef}
+          forwardedRepsOrTimeRef={exerciseFourRepOrTimeRef}
+          forwardedTimestampRef={exerciseFourTimestampRef}
+        />
+        <ExerciseDetail
+          forwardedNameRef={exerciseFiveNameRef}
+          forwardedSetRef={exerciseFiveSetRef}
+          forwardedRepsOrTimeRef={exerciseFiveRepOrTimeRef}
+          forwardedTimestampRef={exerciseFiveTimestampRef}
+        />
 
         <button onClick={addProgramHandler} className="btn btn-primary">
           Submit

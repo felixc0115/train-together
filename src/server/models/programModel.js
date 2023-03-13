@@ -32,6 +32,7 @@ const programSchema = new Schema(
           name: String,
           sets: String,
           repsOrDurationPerSet: String,
+          timestamp: String,
         }),
       ],
       default: undefined,

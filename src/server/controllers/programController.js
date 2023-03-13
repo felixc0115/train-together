@@ -26,8 +26,15 @@ const getProgram = async (req, res) => {
 
 // create a new program
 const createProgram = async (req, res) => {
-  const { title, youtubeLink, category, durationInMins, description } =
-    req.body;
+  const {
+    title,
+    youtubeLink,
+    category,
+    durationInMins,
+    description,
+    exercises,
+    timestamp,
+  } = req.body;
 
   // add document to db
   try {
@@ -37,6 +44,8 @@ const createProgram = async (req, res) => {
       durationInMins,
       youtubeLink,
       description,
+      exercises,
+      timestamp,
     });
     res.status(200).json(program);
   } catch (error) {

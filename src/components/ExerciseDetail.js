@@ -4,6 +4,7 @@ const ExerciseDetail = ({
   forwardedNameRef,
   forwardedSetRef,
   forwardedRepsOrTimeRef,
+  forwardedTimestampRef,
 }) => {
   return (
     <div className="form-control mb-3">
@@ -27,6 +28,13 @@ const ExerciseDetail = ({
           ref={forwardedRepsOrTimeRef}
           type="text"
           placeholder="15 reps, 30 seconds"
+          className="input input-bordered"
+        />
+        <span>exercise timestamp in video</span>
+        <input
+          ref={forwardedTimestampRef}
+          type="text"
+          placeholder="2:30"
           className="input input-bordered"
         />
       </label>
