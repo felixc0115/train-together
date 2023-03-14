@@ -2,7 +2,7 @@ require("dotenv").config({ path: "./config.env" });
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const workoutRoutes = require("./routes/programs");
+const programRoutes = require("./routes/programs");
 
 //middleware
 
@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 });
 
 //ROUTES
-app.use("/api/programs", workoutRoutes);
+app.use("/api/programs", programRoutes);
 
 //connect to db
 mongoose
@@ -22,7 +22,7 @@ mongoose
   .then(() => {
     app.listen(process.env.PORT, () => {
       console.log("listening on port ", process.env.PORT);
-      console.log("connected to db");
+      console.log("connected to database");
     });
   })
   .catch((error) => {

@@ -1,6 +1,6 @@
 import { allProgramsActions } from "./all-programs-slice";
 
-export const fetchProgramData = () => {
+export const fetchAllProgramsData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
       const response = await fetch("/api/programs"); //GET request to the server API

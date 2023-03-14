@@ -1,6 +1,13 @@
 import heartLogo from "../assets/images/heartIcon";
+import { useNavigate } from "react-router-dom";
 
 const ProgramCard = ({ program }) => {
+  const navigate = useNavigate();
+
+  const viewProgramHandler = () => {
+    navigate(`/programs/${program._id}`);
+  };
+
   return (
     <div className="card w-80 bg-base-80 shadow-xl card-compact card-bordered ">
       <figure className="">
@@ -21,7 +28,9 @@ const ProgramCard = ({ program }) => {
         </div>
         <p>{program.description}</p>
         <div className="card-actions justify-end mt-5">
-          <button className="btn btn-primary ">View</button>
+          <button className="btn btn-primary" onClick={viewProgramHandler}>
+            View
+          </button>
           <button className="btn gap-2">{heartLogo}</button>{" "}
         </div>
       </div>
