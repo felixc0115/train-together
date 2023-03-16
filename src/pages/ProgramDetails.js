@@ -13,7 +13,7 @@ const ProgramDetailsPage = () => {
   console.log(program.youtubeLink.split("=")[1]);
 
   return (
-    <div className="min-h-screen bg-base-100 my-7">
+    <div className="card w-85 bg-base-100 shadow-xl">
       <h1>{program.title}</h1>
       <p>
         Uploaded by: felix | category: {program.category} | duration:{" "}
@@ -22,8 +22,8 @@ const ProgramDetailsPage = () => {
       <YoutubeEmbed embedId={program.youtubeLink.split("=")[1]} />
       <h2>Exercises:</h2>
       <ul>
-        {program.exercises.map((exercise) => (
-          <li>
+        {program.exercises.map((exercise, index) => (
+          <li key={index}>
             {exercise.name}: {exercise.sets}x for{" "}
             {exercise.repsOrDurationPerSet} {`(${exercise.timestamp})`}
           </li>

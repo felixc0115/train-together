@@ -76,9 +76,16 @@ const MainNavigation = () => {
             logout{" "}
           </NavLink>
         ) : (
-          <NavLink to="login" className="btn">
+          <NavLink to="login" className="btn mr-1">
             Login
           </NavLink>
+        )}
+        {!isLoggedIn ? (
+          <NavLink className="btn btn-secondary" to="create-account">
+            Sign up
+          </NavLink>
+        ) : (
+          ""
         )}
       </div>
     </div>
