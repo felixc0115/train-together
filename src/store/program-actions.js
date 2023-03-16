@@ -13,10 +13,10 @@ export const fetchAllProgramsData = () => {
     };
 
     try {
-      const programData = await fetchData();
+      const programsData = await fetchData();
       dispatch(
         allProgramsActions.replaceProgram({
-          programs: programData,
+          programs: programsData,
         })
       );
     } catch (error) {

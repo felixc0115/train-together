@@ -1,5 +1,3 @@
-import { useRef } from "react";
-
 const ExerciseDetail = ({
   forwardedNameRef,
   forwardedSetRef,
@@ -43,5 +41,3 @@ const ExerciseDetail = ({
 };
 
 export default ExerciseDetail;
-
-//set up input refs within this component and then initialize a function within the AddForm page to send an object with all of the exercise attributes
