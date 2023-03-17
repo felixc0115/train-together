@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const programRoutes = require("./routes/programs");
+const userRoutes = require("./routes/users");
 
 //middleware
 
@@ -15,6 +16,7 @@ app.use((req, res, next) => {
 
 //ROUTES
 app.use("/api/programs", programRoutes);
+app.use("/api/users", userRoutes);
 
 //connect to db
 mongoose
