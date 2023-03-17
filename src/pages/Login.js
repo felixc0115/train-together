@@ -41,7 +41,7 @@ const LoginPage = () => {
           <div className="form-control mt-6">
             <NavLink
               to="/my-programs"
-              className="btn btn-primary mb-3"
+              className="btn mb-3"
               onClick={loginHandler}
             >
               Login

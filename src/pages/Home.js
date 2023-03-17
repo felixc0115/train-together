@@ -32,7 +32,7 @@ const HomePage = () => {
             So, what are you waiting for? Join our fitness app today and become
             the hero of your fitness journey.
           </p>
-          <NavLink to="createAccount" className="btn btn-primary">
+          <NavLink to="createAccount" className="btn btn-secondary">
             Get Started
           </NavLink>
         </div>
