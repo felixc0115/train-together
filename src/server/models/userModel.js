@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrpyt = require("bcrypt");
 
 const Schema = mongoose.Schema;
 
@@ -13,5 +14,21 @@ const userSchema = new Schema({
     required: true,
   },
 });
+
+//static signup  method
+userSchema.statics.signup = async (email, password) => {
+  const exists = await this.findOne({ email });
+
+  if (exists) {
+    throw Error("Email already in use");
+  }
+
+  const salt = await bcrpyt.genSalt(10);
+  const hash = await bcrpyt.hash(password, salt);
+
+  const user = await this.create({ email, password: hash });
+
+  return user;
+};
 
 module.exports = mongoose.model("User", userSchema);
