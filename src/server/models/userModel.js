@@ -45,4 +45,11 @@ userSchema.statics.signup = async function (email, password) {
   return user;
 };
 
+//static login method
+userSchema.statics.login = function async(email, password) {
+  if (!email || !password) {
+    throw Error("All fields must be filled");
+  }
+};
+
 module.exports = mongoose.model("User", userSchema);
