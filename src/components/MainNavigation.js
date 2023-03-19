@@ -4,7 +4,7 @@ import { authActions } from "../store/auth-slice";
 
 const MainNavigation = () => {
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.isAuthenticated);
+  const isLoggedIn = useSelector((state) => state.auth.user);
   const totalPrograms = useSelector((state) => state.allPrograms.totalPrograms);
 
   const logoutHandler = () => {
