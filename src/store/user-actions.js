@@ -30,3 +30,30 @@ export const sendUserSignupData = (userData) => {
     }
   };
 };
+
+export const sendUserLoginData = (userData) => {
+  return async (dispatch) => {
+    const sendUserData = async () => {
+      const response = await fetch("/api/users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error("login failed");
+      }
+      if (response.ok) {
+        localStorage.setItem("user", JSON.stringify(data));
+      }
+
+      return data;
+    };
+    try {
+      const userLoginData = await sendUserData();
+      dispatch(authActions.login(userLoginData));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};

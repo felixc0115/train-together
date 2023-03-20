@@ -11,26 +11,6 @@ const LoginPage = () => {
 
   const loginHandler = () => {};
 
-  // const loginHandler = async (e) => {
-  //   e.preventDefault();
-  //   console.log(email, password);
-  //   const validateUser = async () => {
-  //     const response = await fetch("/api/users/login", {
-  //       method: "POST",
-  //       body: JSON.stringify({ email, password }),
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
-  //   };
-  //   try {
-  //     await validateUser();
-  //     dispatch(authActions.login(user));
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   return (
     <div className="flex w-full justify-center">
       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -72,9 +52,9 @@ const LoginPage = () => {
             >
               Login
             </button>
-            <button className="btn btn-secondary" to="/create-account">
+            <NavLink className="btn btn-secondary" to="/create-account">
               Create Account
-            </button>
+            </NavLink>
           </div>
         </div>
       </div>
