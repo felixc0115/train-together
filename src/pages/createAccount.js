@@ -1,11 +1,26 @@
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { sendUserSignupData } from "../store/user-actions";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const CreateAccountPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState("");
+
+  const createAccountHandler = (e) => {
+    e.preventDefault();
+    const userSignupData = {
+      email,
+      password,
+    };
+    console.log(userSignupData);
+    dispatch(sendUserSignupData(userSignupData));
+    navigate("/my-programs");
+  };
 
   return (
     <div className="flex w-full justify-center">
@@ -38,7 +53,10 @@ const CreateAccountPage = () => {
             />
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-secondary" to="/create-account">
+            <button
+              className="btn btn-secondary"
+              onClick={createAccountHandler}
+            >
               Create Account
             </button>
           </div>
