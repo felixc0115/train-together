@@ -1,3 +1,5 @@
+<strong>Train Together</strong>
+
 Welcome to Train Together! We believe that everyone has the power to
 be a hero in their own fitness journey. Our app is here to help you
 unlock that potential and reach your goals.
