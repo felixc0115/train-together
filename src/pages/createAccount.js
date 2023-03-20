@@ -8,17 +8,10 @@ const CreateAccountPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState("");
 
   const createAccountHandler = (e) => {
     e.preventDefault();
-    const userSignupData = {
-      email,
-      password,
-    };
-    console.log(userSignupData);
-    dispatch(sendUserSignupData(userSignupData));
+    dispatch(sendUserSignupData({ email, password }));
     navigate("/my-programs");
   };
 
