@@ -56,23 +56,34 @@ const MainNavigation = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <NavLink to="programs">explore ({totalPrograms})</NavLink>
+            <NavLink className="font-mono" to="programs">
+              explore ({totalPrograms})
+            </NavLink>
           </li>
           {isLoggedIn && (
             <li>
-              <NavLink to="my-programs">my programs</NavLink>
+              <NavLink className="font-mono" to="my-programs">
+                my programs
+              </NavLink>
             </li>
           )}
           {isLoggedIn && (
             <li>
-              <NavLink to="add-program">add program</NavLink>
+              <NavLink className="font-mono" to="add-program">
+                add program
+              </NavLink>
             </li>
           )}
         </ul>
       </div>
       <div className="navbar-end">
         {isLoggedIn ? (
-          <NavLink onClick={logoutHandler} className="btn">
+          <span className="font-mono">welcome, {isLoggedIn.email}!</span>
+        ) : (
+          ""
+        )}
+        {isLoggedIn ? (
+          <NavLink onClick={logoutHandler} className="btn ml-2 font-mono">
             logout{" "}
           </NavLink>
         ) : (
