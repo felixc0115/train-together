@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo3.png";
+import { useSelector } from "react-redux";
 
 const HomePage = () => {
+  const isLoggedIn = useSelector((state) => state.auth.user);
+
   return (
     <div className="hero min-h-screen bg-base-100">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -32,9 +35,11 @@ const HomePage = () => {
             So, what are you waiting for? Join our fitness app today and become
             the hero of your fitness journey.
           </p>
-          <NavLink to="createAccount" className="btn btn-secondary">
-            Get Started
-          </NavLink>
+          {!isLoggedIn && (
+            <NavLink to="createAccount" className="btn btn-secondary">
+              Get Started
+            </NavLink>
+          )}
         </div>
       </div>
     </div>
