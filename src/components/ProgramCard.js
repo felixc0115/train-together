@@ -1,8 +1,10 @@
 import heartLogo from "../assets/images/heartIcon";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ProgramCard = ({ program }) => {
   const navigate = useNavigate();
+  const isLoggedIn = useSelector((state) => state.auth.user);
 
   const viewProgramHandler = () => {
     navigate(`/programs/${program._id}`);
@@ -31,7 +33,7 @@ const ProgramCard = ({ program }) => {
           <button className="btn btn-primary" onClick={viewProgramHandler}>
             View
           </button>
-          <button className="btn gap-2">{heartLogo}</button>{" "}
+          {isLoggedIn && <button className="btn gap-2">{heartLogo}</button>}
         </div>
       </div>
     </div>

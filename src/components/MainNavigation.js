@@ -83,7 +83,11 @@ const MainNavigation = () => {
           ""
         )}
         {isLoggedIn ? (
-          <NavLink onClick={logoutHandler} className="btn ml-5 font-mono">
+          <NavLink
+            to="/programs"
+            onClick={logoutHandler}
+            className="btn ml-5 font-mono"
+          >
             logout{" "}
           </NavLink>
         ) : (
