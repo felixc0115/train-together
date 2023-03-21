@@ -5,12 +5,13 @@ import { useDispatch } from "react-redux";
 import { fetchAllProgramsData } from "../store/program-actions";
 
 const ProgramsPage = () => {
+  const allPrograms = useSelector((state) => state.allPrograms.programs);
+  const { token } = useSelector((state) => state.auth.user);
+
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchAllProgramsData());
-  }, [dispatch]);
-  const allPrograms = useSelector((state) => state.allPrograms.programs);
-  console.log(allPrograms);
+    dispatch(fetchAllProgramsData(token));
+  }, [dispatch, token]);
 
   return (
     <div className="flex w-full gap-5 mx-auto my-7 flex-wrap justify-center">

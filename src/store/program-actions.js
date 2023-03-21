@@ -1,9 +1,11 @@
 import { allProgramsActions } from "./all-programs-slice";
 
-export const fetchAllProgramsData = () => {
+export const fetchAllProgramsData = (token) => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const response = await fetch("/api/programs"); //GET request to the server API
+      const response = await fetch("/api/programs", {
+        headers: { Authorization: `Bearer ${token}` },
+      }); //GET request to the server API
 
       if (!response.ok) {
         throw new Error("Could not fetch programs");
@@ -25,13 +27,14 @@ export const fetchAllProgramsData = () => {
   };
 };
 
-export const sendProgramData = (newProgram) => {
+export const sendProgramData = (newProgram, token) => {
   return async (dispatch) => {
     const sendRequest = async () => {
       const response = await fetch("/api/programs", {
         method: "POST",
         body: JSON.stringify(newProgram),
         headers: {
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       });

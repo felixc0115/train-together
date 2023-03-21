@@ -3,10 +3,13 @@ import { useDispatch } from "react-redux";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { sendProgramData } from "../store/program-actions";
+import { useSelector } from "react-redux";
 
 const AddProgramPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { token } = useSelector((state) => state.auth.user);
+  console.log(token);
 
   const titleRef = useRef(null);
   const youtubeLinkRef = useRef(null);
@@ -81,7 +84,7 @@ const AddProgramPage = () => {
       category: categoryRef.current.value,
       durationInMins: durationRef.current.value,
     };
-    dispatch(sendProgramData(newProgram));
+    dispatch(sendProgramData(newProgram, token));
     navigate("/programs");
   };
 
