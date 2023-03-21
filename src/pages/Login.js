@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { authActions } from "../store/auth-slice";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { sendUserLoginData } from "../store/user-actions";
