@@ -8,8 +8,8 @@ const HomePage = () => {
   return (
     <div className="hero min-h-screen bg-base-100">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <img className="h-80 w-80" src={logo} alt="logo" />
-        <div className="prose">
+        <img className="h-100 w-80" src={logo} alt="logo" />
+        <div>
           <h1 className="text-5xl font-bold">Together we are stronger!</h1>
           <p className="py-6">
             Welcome to Train Together! We believe that everyone has the power to
