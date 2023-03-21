@@ -2,14 +2,19 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { authActions } from "../store/auth-slice";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { sendUserLoginData } from "../store/user-actions";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const loginHandler = () => {};
+  const loginHandler = () => {
+    dispatch(sendUserLoginData({ email, password }));
+    navigate("/my-programs");
+  };
 
   return (
     <div className="flex w-full justify-center">
