@@ -7,9 +7,6 @@ import AddProgramPage from "./pages/AddProgram";
 import ProgramDetailsPage from "./pages/ProgramDetails";
 import LoginPage from "./pages/Login";
 import CreateAccountPage from "./pages/CreateAccount";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchAllProgramsData } from "./store/program-actions";
 
 const router = createBrowserRouter([
   {
@@ -28,12 +25,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchAllProgramsData());
-  }, [dispatch]);
-
   return <RouterProvider router={router} />;
 }
 

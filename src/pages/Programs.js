@@ -1,7 +1,14 @@
 import ProgramCard from "../components/ProgramCard";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchAllProgramsData } from "../store/program-actions";
 
 const ProgramsPage = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAllProgramsData());
+  }, [dispatch]);
   const allPrograms = useSelector((state) => state.allPrograms.programs);
   console.log(allPrograms);
 
