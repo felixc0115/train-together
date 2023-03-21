@@ -5,15 +5,12 @@ import { useSelector } from "react-redux";
 const ProgramDetailsPage = () => {
   const programs = useSelector((state) => state.allPrograms.programs);
 
-  console.log(programs);
   const { programId } = useParams();
-  console.log(programId);
 
   const program = programs.find((program) => program._id === programId);
-  console.log(program.youtubeLink.split("=")[1]);
 
   return (
-    <div className="card w-85 bg-base-100 shadow-xl">
+    <div>
       <h1>{program.title}</h1>
       <p>
         Uploaded by: felix | category: {program.category} | duration:{" "}

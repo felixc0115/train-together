@@ -36,7 +36,7 @@ const MainNavigation = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <NavLink to="programs">explore{totalPrograms}</NavLink>
+              <NavLink to="programs">explore({totalPrograms})</NavLink>
             </li>
             {isLoggedIn && (
               <li>
@@ -57,7 +57,7 @@ const MainNavigation = () => {
         <ul className="menu menu-horizontal px-1">
           <li>
             <NavLink className="font-mono" to="programs">
-              explore ({totalPrograms})
+              explore({totalPrograms})
             </NavLink>
           </li>
           {isLoggedIn && (

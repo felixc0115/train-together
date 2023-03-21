@@ -8,6 +8,9 @@ const {
   deleteProgram,
   updateProgram,
 } = require("../controllers/programController");
+const requireAuth = require("../middleware/requireAuth");
+
+router.use(requireAuth);
 
 //get all programs
 router.get("/", getPrograms);

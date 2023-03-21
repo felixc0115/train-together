@@ -24,7 +24,7 @@ const ProgramCard = ({ program }) => {
         <h2 className="card-title">{program.title}</h2>
         <div>
           <div className="badge badge-outline  ">{program.category}</div>
-          <div className="badge badge-outline  ">
+          <div className="badge badge-outline  ml-1">
             {`${program.durationInMins}mins`}{" "}
           </div>
         </div>
