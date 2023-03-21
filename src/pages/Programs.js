@@ -16,7 +16,7 @@ const ProgramsPage = () => {
   return (
     <div className="flex w-full gap-5 mx-auto my-7 flex-wrap justify-center">
       {allPrograms.map((program) => (
-        <ProgramCard key={program._id} program={program} />
+        <ProgramCard key={program["_id"]} program={program} />
       ))}
     </div>
   );
