@@ -8,8 +8,7 @@ import { useSelector } from "react-redux";
 const AddProgramPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { token } = useSelector((state) => state.auth.user);
-  console.log(token);
+  const { token, username } = useSelector((state) => state.auth.user);
 
   const titleRef = useRef(null);
   const youtubeLinkRef = useRef(null);
@@ -46,6 +45,7 @@ const AddProgramPage = () => {
     event.preventDefault();
 
     const newProgram = {
+      username,
       youtubeLink: youtubeLinkRef.current.value,
       title: titleRef.current.value,
       description: descriptionRef.current.value,

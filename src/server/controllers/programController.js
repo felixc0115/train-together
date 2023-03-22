@@ -27,6 +27,7 @@ const getProgram = async (req, res) => {
 // create a new program
 const createProgram = async (req, res) => {
   const {
+    username,
     title,
     youtubeLink,
     category,
@@ -39,6 +40,7 @@ const createProgram = async (req, res) => {
   // add document to db
   try {
     const program = await Program.create({
+      username,
       title,
       category,
       durationInMins,
