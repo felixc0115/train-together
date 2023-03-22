@@ -13,8 +13,9 @@ const ProgramDetailsPage = () => {
     <div>
       <h1>{program.title}</h1>
       <p>
-        Uploaded by: felix | category: {program.category} | duration:{" "}
-        {program.durationInMins} mins | 20 people training
+        Uploaded by: {program.username || "felix"} | category:{" "}
+        {program.category} | duration: {program.durationInMins} mins | 20 people
+        training
       </p>
       <YoutubeEmbed embedId={program.youtubeLink.split("=")[1]} />
       <h2>Exercises:</h2>
