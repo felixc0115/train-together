@@ -8,10 +8,11 @@ const CreateAccountPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   const createAccountHandler = (e) => {
     e.preventDefault();
-    dispatch(sendUserSignupData({ email, password }));
+    dispatch(sendUserSignupData({ email, password, username }));
     navigate("/my-programs");
   };
 
@@ -19,6 +20,19 @@ const CreateAccountPage = () => {
     <div className="flex w-full justify-center">
       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <div className="card-body">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Username</span>
+            </label>
+            <input
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+              type="text"
+              placeholder="username"
+              className="input input-bordered"
+            />
+          </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
@@ -40,7 +54,7 @@ const CreateAccountPage = () => {
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
-              type="text"
+              type="password"
               placeholder="password"
               className="input input-bordered"
             />
