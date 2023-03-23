@@ -40,10 +40,14 @@ const signupUser = async (req, res) => {
 //add program to favorites
 
 const favoriteProgram = async (req, res) => {
-  const { programId } = req.body;
+  const { programId, username } = req.body;
 
   try {
-  } catch (error) {}
+    await User.favoriteProgram(programId, username);
+    res.status(200).json({ programId, username });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
 
 module.exports = { loginUser, signupUser };

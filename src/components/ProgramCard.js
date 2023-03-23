@@ -1,13 +1,19 @@
 import heartLogo from "../assets/images/heartIcon";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addProgramToFavorites } from "../store/user-actions";
 
 const ProgramCard = ({ program }) => {
   const navigate = useNavigate();
-  const isLoggedIn = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.user);
 
   const viewProgramHandler = () => {
     navigate(`/programs/${program._id}`);
+  };
+
+  const addToFavoritesHandler = () => {
+    dispatch(addProgramToFavorites(program._id, user.username));
   };
 
   return (
@@ -33,7 +39,11 @@ const ProgramCard = ({ program }) => {
           <button className="btn btn-primary" onClick={viewProgramHandler}>
             View
           </button>
-          {isLoggedIn && <button className="btn gap-2">{heartLogo}</button>}
+          {user && (
+            <button onClick={addToFavoritesHandler} className="btn gap-2">
+              {heartLogo}
+            </button>
+          )}
         </div>
       </div>
     </div>
