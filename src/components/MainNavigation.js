@@ -4,7 +4,7 @@ import { authActions } from "../store/auth-slice";
 
 const MainNavigation = () => {
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.user);
+  const user = useSelector((state) => state.auth.user);
   const totalPrograms = useSelector((state) => state.allPrograms.totalPrograms);
 
   const logoutHandler = () => {
@@ -35,12 +35,12 @@ const MainNavigation = () => {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            {isLoggedIn && (
+            {user && (
               <li>
                 <NavLink to="programs">explore({totalPrograms})</NavLink>
               </li>
             )}
-            {isLoggedIn && (
+            {user && (
               <li>
                 <NavLink to="my-programs">my programs</NavLink>
               </li>
@@ -57,7 +57,7 @@ const MainNavigation = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          {isLoggedIn && (
+          {user && (
             <li>
               <NavLink className="font-mono" to="programs">
                 explore({totalPrograms})
@@ -65,14 +65,14 @@ const MainNavigation = () => {
             </li>
           )}
 
-          {isLoggedIn && (
+          {user && (
             <li>
               <NavLink className="font-mono" to="my-programs">
                 my programs
               </NavLink>
             </li>
           )}
-          {isLoggedIn && (
+          {user && (
             <li>
               <NavLink className="font-mono" to="add-program">
                 add program
@@ -82,14 +82,12 @@ const MainNavigation = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        {isLoggedIn ? (
-          <span className="font-mono">
-            welcome, {isLoggedIn.user.username}!
-          </span>
+        {user ? (
+          <span className="font-mono">welcome, {user.username}!</span>
         ) : (
           ""
         )}
-        {isLoggedIn ? (
+        {user ? (
           <NavLink
             to="/programs"
             onClick={logoutHandler}
@@ -102,7 +100,7 @@ const MainNavigation = () => {
             Login
           </NavLink>
         )}
-        {!isLoggedIn ? (
+        {!user ? (
           <NavLink className="btn btn-secondary" to="create-account">
             Sign up
           </NavLink>

@@ -57,3 +57,25 @@ export const sendUserLoginData = (userData) => {
     }
   };
 };
+
+export const addProgramToFavorites = (programId, username) => {
+  return async (dispatch) => {
+    const sendProgramId = async () => {
+      const response = fetch("/api/users", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(programId, username),
+      });
+
+      if (!response.ok) {
+        throw new Error("adding program to favorites failed");
+      }
+    };
+    try {
+      await sendProgramId();
+      dispatch(authActions.addToFavorite(programId));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
