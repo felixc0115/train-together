@@ -9,10 +9,14 @@ const authSlice = createSlice({
   initialState: initialAuthState,
   reducers: {
     login(state, action) {
-      state.user = action.payload;
+      state.user = action.payload.user;
+      state.token = action.payload.token;
     },
     logout(state) {
       state.user = null;
+    },
+    addToFavorite(state, action) {
+      state.user.favoritedPrograms.push(action.payload);
     },
   },
 });
