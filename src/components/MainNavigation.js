@@ -83,7 +83,9 @@ const MainNavigation = () => {
       </div>
       <div className="navbar-end">
         {isLoggedIn ? (
-          <span className="font-mono">welcome, {isLoggedIn.username}!</span>
+          <span className="font-mono">
+            welcome, {isLoggedIn.user.username}!
+          </span>
         ) : (
           ""
         )}
