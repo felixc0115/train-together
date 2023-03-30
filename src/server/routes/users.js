@@ -2,6 +2,9 @@ const express = require("express");
 const router = express();
 const { signupUser, loginUser } = require("../controllers/userController");
 
+//update user route 
+router.post('/', )
+
 //login route
 router.post("/login", loginUser);
 
@@ -9,3 +12,4 @@ router.post("/login", loginUser);
 router.post("/signup", signupUser);
 
 module.exports = router;
+
