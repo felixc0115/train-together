@@ -40,6 +40,7 @@ const signupUser = async (req, res) => {
 //add program to favorites
 
 const favoriteProgram = async (req, res) => {
+  console.log(req.body);
   const { programId, username } = req.body;
 
   try {
@@ -50,4 +51,4 @@ const favoriteProgram = async (req, res) => {
   }
 };
 
-module.exports = { loginUser, signupUser };
+module.exports = { loginUser, signupUser, favoriteProgram };

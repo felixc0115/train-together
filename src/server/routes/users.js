@@ -1,9 +1,13 @@
 const express = require("express");
 const router = express();
-const { signupUser, loginUser } = require("../controllers/userController");
+const {
+  signupUser,
+  loginUser,
+  favoriteProgram,
+} = require("../controllers/userController");
 
-//update user route 
-router.post('/', )
+//add program to favorites
+router.patch("/", favoriteProgram);
 
 //login route
 router.post("/login", loginUser);
@@ -12,4 +16,3 @@ router.post("/login", loginUser);
 router.post("/signup", signupUser);
 
 module.exports = router;
-

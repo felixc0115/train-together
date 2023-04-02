@@ -77,7 +77,7 @@ userSchema.statics.login = async function (email, password) {
 
 userSchema.statics.favoriteProgram = async function (programId, username) {
   const filter = { username };
-  const update = { programId };
+  const update = { favoritedPrograms: [programId] };
 
   await this.findOneAndUpdate(filter, update);
 };
