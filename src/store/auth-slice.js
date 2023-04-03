@@ -15,7 +15,7 @@ const authSlice = createSlice({
       state.user = null;
     },
     addToFavorite(state, action) {
-      state.user.favoritedPrograms.push(action.payload);
+      state.user.favoritedPrograms = action.payload;
     },
   },
 });

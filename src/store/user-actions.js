@@ -58,13 +58,13 @@ export const sendUserLoginData = (userData) => {
   };
 };
 
-export const addProgramToFavorites = (programId, username) => {
+export const addProgramToFavorites = (favoritedPrograms, username) => {
   return async (dispatch) => {
     const sendProgramId = async () => {
       const response = await fetch("/api/users", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ programId, username }),
+        body: JSON.stringify({ favoritedPrograms, username }),
       });
 
       if (!response.ok) {
@@ -73,7 +73,7 @@ export const addProgramToFavorites = (programId, username) => {
     };
     try {
       await sendProgramId();
-      dispatch(authActions.addToFavorite(programId));
+      dispatch(authActions.addToFavorite(favoritedPrograms));
     } catch (error) {
       console.error(error);
       console.log(error.message);

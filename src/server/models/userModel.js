@@ -76,17 +76,14 @@ userSchema.statics.login = async function (email, password) {
 
 //find user method
 
-userSchema.statics.favoriteProgram = async function (programId, username) {
+userSchema.statics.favoriteProgram = async function (
+  favoritedPrograms,
+  username
+) {
   const filter = { username };
-  const update = { favoritedPrograms: [programId] };
+  const update = { favoritedPrograms };
 
-  await this.findOneAndUpdate(filter, update, (error, data) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log(data);
-    }
-  });
+  await this.findOneAndUpdate(filter, update);
 };
 
 module.exports = mongoose.model("User", userSchema);

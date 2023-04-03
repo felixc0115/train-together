@@ -13,7 +13,8 @@ const ProgramCard = ({ program }) => {
   };
 
   const addToFavoritesHandler = () => {
-    dispatch(addProgramToFavorites(program._id, user.username));
+    const favoritedPrograms = [...user.favoritedPrograms, program._id];
+    dispatch(addProgramToFavorites(favoritedPrograms, user.username));
   };
 
   return (
