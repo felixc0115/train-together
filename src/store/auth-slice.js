@@ -14,7 +14,7 @@ const authSlice = createSlice({
     logout(state) {
       state.user = null;
     },
-    addToFavorite(state, action) {
+    setFavoritePrograms(state, action) {
       state.user.favoritedPrograms = action.payload;
     },
   },

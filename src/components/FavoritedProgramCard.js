@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addProgramToFavorites } from "../store/user-actions";
+import { modifyFavoritePrograms } from "../store/user-actions";
 
 const FavoritedProgramCard = ({ program }) => {
   const navigate = useNavigate();
@@ -13,13 +13,10 @@ const FavoritedProgramCard = ({ program }) => {
 
   const removeFromFavoritesHandler = () => {
     const remainingFavoritedPrograms = user.favoritedPrograms.filter(
-      (favoritedProgram) => favoritedProgram._id !== program._id
+      (favoritedProgram) => favoritedProgram !== program._id
     );
-    console.log(user.favoritedPrograms);
-    console.log(typeof program._id);
-    console.log(remainingFavoritedPrograms);
 
-    // dispatch(addProgramToFavorites(program._id, user.username));
+    dispatch(modifyFavoritePrograms(remainingFavoritedPrograms, user.username));
   };
 
   return (

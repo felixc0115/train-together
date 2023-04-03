@@ -39,16 +39,16 @@ const signupUser = async (req, res) => {
 
 //add program to favorites
 
-const favoriteProgram = async (req, res) => {
+const modifyFavoritePrograms = async (req, res) => {
   console.log(req.body);
-  const { programId, username } = req.body;
+  const { favoritedPrograms, username } = req.body;
 
   try {
-    await User.favoriteProgram(programId, username);
-    res.status(200).json({ programId, username });
+    await User.modifyFavoritePrograms(favoritedPrograms, username);
+    res.status(200).json({ favoritedPrograms, username });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
-module.exports = { loginUser, signupUser, favoriteProgram };
+module.exports = { loginUser, signupUser, modifyFavoritePrograms };

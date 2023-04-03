@@ -3,7 +3,7 @@ const router = express();
 const {
   signupUser,
   loginUser,
-  favoriteProgram,
+  modifyFavoritePrograms,
 } = require("../controllers/userController");
 
 //login route
@@ -13,6 +13,6 @@ router.post("/login", loginUser);
 router.post("/signup", signupUser);
 
 //add program to favorites
-router.patch("/", favoriteProgram);
+router.patch("/", modifyFavoritePrograms);
 
 module.exports = router;

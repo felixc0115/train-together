@@ -76,7 +76,7 @@ userSchema.statics.login = async function (email, password) {
 
 //find user method
 
-userSchema.statics.favoriteProgram = async function (
+userSchema.statics.modifyFavoritePrograms = async function (
   favoritedPrograms,
   username
 ) {

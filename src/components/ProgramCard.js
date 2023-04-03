@@ -1,7 +1,7 @@
 import heartLogo from "../assets/images/heartIcon";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addProgramToFavorites } from "../store/user-actions";
+import { modifyFavoritePrograms } from "../store/user-actions";
 
 const ProgramCard = ({ program }) => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const ProgramCard = ({ program }) => {
 
   const addToFavoritesHandler = () => {
     const favoritedPrograms = [...user.favoritedPrograms, program._id];
-    dispatch(addProgramToFavorites(favoritedPrograms, user.username));
+    dispatch(modifyFavoritePrograms(favoritedPrograms, user.username));
   };
 
   return (
