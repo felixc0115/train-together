@@ -1,4 +1,3 @@
-import heartLogo from "../assets/images/heartIcon";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addProgramToFavorites } from "../store/user-actions";
@@ -41,7 +40,7 @@ const FavoritedProgramCard = ({ program }) => {
           </button>
           {user && (
             <button onClick={addToFavoritesHandler} className="btn gap-2">
-              {heartLogo}
+              Remove
             </button>
           )}
         </div>

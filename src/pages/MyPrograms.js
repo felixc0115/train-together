@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import FavoritedProgramCard from "../components/ProgramCard";
+import FavoritedProgramCard from "../components/FavoritedProgramCard";
 
 const MyProgramsPage = () => {
   const favoritedProgramIds = useSelector(
