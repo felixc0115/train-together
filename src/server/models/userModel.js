@@ -8,6 +8,7 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
+    lowercase: true,
     unique: true,
   },
   password: {
@@ -79,7 +80,13 @@ userSchema.statics.favoriteProgram = async function (programId, username) {
   const filter = { username };
   const update = { favoritedPrograms: [programId] };
 
-  await this.findOneAndUpdate(filter, update);
+  await this.findOneAndUpdate(filter, update, (error, data) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(data);
+    }
+  });
 };
 
 module.exports = mongoose.model("User", userSchema);

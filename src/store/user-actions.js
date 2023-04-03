@@ -64,7 +64,7 @@ export const addProgramToFavorites = (programId, username) => {
       const response = await fetch("/api/users", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(programId, username),
+        body: JSON.stringify({ programId, username }),
       });
 
       if (!response.ok) {
@@ -72,11 +72,11 @@ export const addProgramToFavorites = (programId, username) => {
       }
     };
     try {
-      console.log(programId);
       await sendProgramId();
       dispatch(authActions.addToFavorite(programId));
     } catch (error) {
       console.error(error);
+      console.log(error.message);
     }
   };
 };
