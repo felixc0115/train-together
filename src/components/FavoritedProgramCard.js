@@ -11,8 +11,15 @@ const FavoritedProgramCard = ({ program }) => {
     navigate(`/programs/${program._id}`);
   };
 
-  const addToFavoritesHandler = () => {
-    dispatch(addProgramToFavorites(program._id, user.username));
+  const removeFromFavoritesHandler = () => {
+    const remainingFavoritedPrograms = user.favoritedPrograms.filter(
+      (favoritedProgram) => favoritedProgram._id !== program._id
+    );
+    console.log(user.favoritedPrograms);
+    console.log(typeof program._id);
+    console.log(remainingFavoritedPrograms);
+
+    // dispatch(addProgramToFavorites(program._id, user.username));
   };
 
   return (
@@ -39,7 +46,7 @@ const FavoritedProgramCard = ({ program }) => {
             View
           </button>
           {user && (
-            <button onClick={addToFavoritesHandler} className="btn gap-2">
+            <button onClick={removeFromFavoritesHandler} className="btn gap-2">
               Remove
             </button>
           )}
