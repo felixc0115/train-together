@@ -1,17 +1,42 @@
 import ProgramCard from "../components/ProgramCard";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { fetchAllProgramsData } from "../store/program-actions";
+import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
+import { sendProgramData } from "../store/program-actions";
 
 const ProgramsPage = () => {
   const allPrograms = useSelector((state) => state.allPrograms.programs);
-  const { token } = useSelector((state) => state.auth.user);
+  const { token, username } = useSelector((state) => state.auth.user);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   useEffect(() => {
     dispatch(fetchAllProgramsData(token));
   }, [dispatch, token]);
+
+  const titleRef = useRef(null);
+  const youtubeLinkRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const categoryRef = useRef(null);
+  const durationRef = useRef(null);
+
+  const addProgramHandler = (event) => {
+    event.preventDefault();
+
+    const newProgram = {
+      username,
+      youtubeLink: youtubeLinkRef.current.value,
+      title: titleRef.current.value,
+      description: descriptionRef.current.value,
+      category: categoryRef.current.value,
+      durationInMins: durationRef.current.value,
+    };
+    dispatch(sendProgramData(newProgram, token));
+    navigate("/programs");
+  };
 
   return (
     <>
@@ -39,7 +64,7 @@ const ProgramsPage = () => {
               <label className="input-group input-group-s">
                 <span>program title</span>
                 <input
-                  // ref={titleRef}
+                  ref={titleRef}
                   type="text"
                   placeholder="hip mobility routine"
                   className="input input-bordered"
@@ -50,7 +75,7 @@ const ProgramsPage = () => {
               <label className="input-group input-group-s">
                 <span>program description</span>
                 <input
-                  // ref={descriptionRef}
+                  ref={descriptionRef}
                   type="text"
                   placeholder="mobility routine to work on your hips!"
                   className="input input-bordered"
@@ -61,7 +86,7 @@ const ProgramsPage = () => {
               <label className="input-group input-group-s">
                 <span>youtube link</span>
                 <input
-                  // ref={youtubeLinkRef}
+                  ref={youtubeLinkRef}
                   type="text"
                   placeholder="https://www.youtube.com/watch?v=jj2AAH6jbHk"
                   className="input input-bordered"
@@ -72,7 +97,7 @@ const ProgramsPage = () => {
               <label className="input-group input-group-s">
                 <span>program category</span>
                 <input
-                  // ref={categoryRef}
+                  ref={categoryRef}
                   type="text"
                   placeholder="(e.g., mobility, stretching, workout, rehab)"
                   className="input input-bordered"
@@ -83,13 +108,16 @@ const ProgramsPage = () => {
               <label className="input-group input-group-s">
                 <span>program duration (mins)</span>
                 <input
-                  // ref={durationRef}
+                  ref={durationRef}
                   type="text"
                   placeholder="15"
                   className="input input-bordered"
                 />
               </label>
             </div>
+            <button onClick={addProgramHandler} className="btn">
+              Submit
+            </button>
           </div>
         </div>
       </div>
