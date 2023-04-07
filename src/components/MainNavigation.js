@@ -45,10 +45,6 @@ const MainNavigation = () => {
                 <NavLink to="my-programs">my programs</NavLink>
               </li>
             )}
-
-            <li>
-              <NavLink to="add-program">add program</NavLink>
-            </li>
           </ul>
         </div>
         <NavLink to="" className="font-mono normal-case text-2xl">
@@ -69,13 +65,6 @@ const MainNavigation = () => {
             <li>
               <NavLink className="font-mono" to="my-programs">
                 my programs
-              </NavLink>
-            </li>
-          )}
-          {user && (
-            <li>
-              <NavLink className="font-mono" to="add-program">
-                add program
               </NavLink>
             </li>
           )}
