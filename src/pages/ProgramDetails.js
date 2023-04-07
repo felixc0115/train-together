@@ -31,14 +31,14 @@ const ProgramDetailsPage = () => {
       </div>
       <div>
         <h2>Exercises:</h2>
-        <ul>
+        {/* <ul>
           {program.exercises.map((exercise, index) => (
             <li key={index}>
               {exercise.name}: {exercise.sets}x for{" "}
               {exercise.repsOrDurationPerSet} {`(${exercise.timestamp})`}
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
     </>
   );
