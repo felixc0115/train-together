@@ -20,8 +20,11 @@ const FavoritedProgramCard = ({ program }) => {
   };
 
   return (
-    <div className="card w-80 bg-base-80 shadow-xl card-compact card-bordered ">
-      <figure className="">
+    <div
+      onClick={viewProgramHandler}
+      className="card w-80 bg-base-80 shadow-xl card-compact card-bordered cursor-pointer "
+    >
+      <figure>
         <img
           src={`https://img.youtube.com/vi/${
             program.youtubeLink.split("=")[1]
@@ -39,9 +42,6 @@ const FavoritedProgramCard = ({ program }) => {
         </div>
         <p>{program.description}</p>
         <div className="card-actions justify-end mt-5">
-          <button className="btn btn-primary" onClick={viewProgramHandler}>
-            View
-          </button>
           {user && (
             <button onClick={removeFromFavoritesHandler} className="btn gap-2">
               Remove

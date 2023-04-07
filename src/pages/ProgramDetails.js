@@ -1,44 +1,96 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useRef } from "react";
+import classes from "./ProgramDetails.module.css";
 
 const ProgramDetailsPage = () => {
+  const nameRef = useRef();
+  const setRef = useRef();
+  const repsOrTimePerSetRef = useRef();
+  const timestampRef = useRef();
   const programs = useSelector((state) => state.allPrograms.programs);
 
   const { programId } = useParams();
 
   const program = programs.find((program) => program._id === programId);
 
+  const addExerciseHandler = (e) => {
+    e.preventDefault();
+
+    const newExercise = {
+      name: nameRef.current.value,
+      sets: setRef.current.value,
+    };
+  };
+
   return (
     <>
       <div className="flex mx-auto my-7 flex-wrap justify-center prose prose-headings:font-serif prose-headings:text-black-700">
-        <h1>{program.title}</h1>
+        <h1 className="mb-1">{program.title}</h1>
         <p>
-          Uploaded by: {program.username} <strong>|</strong> category:{" "}
+          added by: {program.username} <strong>|</strong> category:{" "}
           {program.category} <strong>|</strong> duration:{" "}
           {program.durationInMins} mins <strong>|</strong> 20 people training
         </p>
       </div>
-      <div className="overflow-hidden pb-32  h-full relative ">
-        <iframe
-          className="top-0 left-0 h-4/5 w-4/5 absolute"
-          src={`https://www.youtube.com/embed/${
-            program.youtubeLink.split("=")[1]
-          }`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="Embedded youtube"
-        />
-      </div>
-      <div>
-        <h2>Exercises:</h2>
-        {/* <ul>
-          {program.exercises.map((exercise, index) => (
-            <li key={index}>
-              {exercise.name}: {exercise.sets}x for{" "}
-              {exercise.repsOrDurationPerSet} {`(${exercise.timestamp})`}
-            </li>
-          ))}
-        </ul> */}
+      <iframe
+        width="1060"
+        height="500"
+        className="m-auto"
+        src={`https://www.youtube.com/embed/${
+          program.youtubeLink.split("=")[1]
+        }`}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        title="program video"
+      />
+      <div className="m-auto mt-5">
+        <div className="form-control mb-3">
+          <label className="input-group input-group-s ml-5">
+            <span>exercise name</span>
+            <input
+              ref={nameRef}
+              type="text"
+              placeholder="Figure 4 Stretch"
+              className="input input-bordered"
+            />
+            <span># of sets</span>
+            <input
+              ref={setRef}
+              type="text"
+              placeholder="3"
+              className="input input-bordered"
+            />
+            <span># of reps/time per set</span>
+            <input
+              ref={repsOrTimePerSetRef}
+              type="text"
+              placeholder="15 reps, 30 seconds"
+              className="input input-bordered"
+            />
+            <span>exercise timestamp in video</span>
+            <input
+              ref={timestampRef}
+              type="text"
+              placeholder="2:30"
+              className="input input-bordered"
+            />
+            <button onClick={addExerciseHandler} className="ml-3 btn">
+              Submit
+            </button>
+          </label>
+        </div>
+        <h2 className="ml-5">Exercises:</h2>
+        <ul>
+          {program.exercises
+            ? program.exercises.map((exercise, index) => (
+                <li key={index}>
+                  {exercise.name}: {exercise.sets}x for{" "}
+                  {exercise.repsOrDurationPerSet} {`(${exercise.timestamp})`}
+                </li>
+              ))
+            : ""}
+        </ul>
       </div>
     </>
   );
