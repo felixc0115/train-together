@@ -11,7 +11,8 @@ const FavoritedProgramCard = ({ program }) => {
     navigate(`/programs/${program._id}`);
   };
 
-  const removeFromFavoritesHandler = () => {
+  const removeFromFavoritesHandler = (e) => {
+    e.stopPropagation();
     const remainingFavoritedPrograms = user.favoritedPrograms.filter(
       (favoritedProgram) => favoritedProgram !== program._id
     );

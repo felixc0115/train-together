@@ -12,7 +12,8 @@ const ProgramCard = ({ program }) => {
     navigate(`/programs/${program._id}`);
   };
 
-  const addToFavoritesHandler = () => {
+  const addToFavoritesHandler = (e) => {
+    e.stopPropagation();
     const favoritedPrograms = [...user.favoritedPrograms, program._id];
     dispatch(modifyFavoritePrograms(favoritedPrograms, user.username));
   };
