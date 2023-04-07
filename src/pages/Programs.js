@@ -16,7 +16,10 @@ const ProgramsPage = () => {
   return (
     <>
       <div>
-        <label htmlFor="my-modal-3" className="btn">
+        <label
+          htmlFor="my-modal-3"
+          className="btn btn-secondary fixed bottom-20 right-6"
+        >
           add program
         </label>
 
@@ -29,8 +32,8 @@ const ProgramsPage = () => {
             >
               ✕
             </label>
-            <h3 className="text-lg font-bold">
-              Congratulations random Internet user!
+            <h3 className="text-lg font-bold mb-5">
+              add program details below!
             </h3>
             <div className="form-control mb-3">
               <label className="input-group input-group-s">
