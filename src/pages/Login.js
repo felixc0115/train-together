@@ -1,7 +1,6 @@
-import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { sendUserLoginData } from "../store/user-actions";
 
 const LoginPage = () => {

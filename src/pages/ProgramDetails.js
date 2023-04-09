@@ -20,6 +20,8 @@ const ProgramDetailsPage = () => {
     const newExercise = {
       name: nameRef.current.value,
       sets: setRef.current.value,
+      repsOrDurationPerSet: repsOrTimePerSetRef.current.value,
+      timestamp: timestampRef.current.value,
     };
   };
 
@@ -51,7 +53,7 @@ const ProgramDetailsPage = () => {
             <input
               ref={nameRef}
               type="text"
-              placeholder="Figure 4 Stretch"
+              placeholder="figure 4 stretch"
               className="input input-bordered"
             />
             <span># of sets</span>
