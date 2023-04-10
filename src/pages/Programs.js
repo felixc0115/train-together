@@ -116,7 +116,7 @@ const ProgramsPage = () => {
               </label>
             </div>
             <button onClick={addProgramHandler} className="btn">
-              Submit
+              Add
             </button>
           </div>
         </div>
