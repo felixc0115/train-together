@@ -75,6 +75,7 @@ const deleteProgram = async (req, res) => {
 //update a program
 const updateProgram = async (req, res) => {
   const { id } = req.params;
+  console.log(req.body);
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "No such program" });
@@ -83,7 +84,7 @@ const updateProgram = async (req, res) => {
   const program = await Program.findOneAndUpdate(
     { _id: id },
     {
-      ...req.body,
+      exercises: req.body,
     }
   );
 

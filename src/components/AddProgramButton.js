@@ -25,6 +25,7 @@ const AddProgramButton = () => {
       description: descriptionRef.current.value,
       category: categoryRef.current.value,
       durationInMins: durationRef.current.value,
+      exercises: [],
     };
     dispatch(sendProgramData(newProgram, token));
     navigate("/programs");

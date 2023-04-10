@@ -52,10 +52,10 @@ export const sendProgramData = (newProgram, token) => {
   };
 };
 
-export const sendExerciseDetail = (newExercise, token) => {
+export const sendExerciseDetail = (newExercise, token, programId) => {
   return async (dispatch) => {
     const sendRequest = async () => {
-      const response = await fetch("/api/programs", {
+      const response = await fetch(`/api/programs/${programId}`, {
         method: "PATCH",
         body: JSON.stringify(newExercise),
         headers: {
@@ -63,13 +63,16 @@ export const sendExerciseDetail = (newExercise, token) => {
           "Content-Type": "application/json",
         },
       });
+
       if (!response.ok) {
         throw new Error("Sending exercise detail failed");
       }
     };
     try {
       await sendRequest();
-      dispatch(allProgramsActions.addExerciseToProgram(newExercise));
+      dispatch(
+        allProgramsActions.addExerciseToProgram({ newExercise, programId })
+      );
     } catch (error) {
       console.error(error);
     }

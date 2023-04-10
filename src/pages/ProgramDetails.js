@@ -1,14 +1,16 @@
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useRef } from "react";
-import classes from "./ProgramDetails.module.css";
+import { sendExerciseDetail } from "../store/program-actions";
 
 const ProgramDetailsPage = () => {
+  const dispatch = useDispatch();
   const nameRef = useRef();
   const setRef = useRef();
   const repsOrTimePerSetRef = useRef();
   const timestampRef = useRef();
   const programs = useSelector((state) => state.allPrograms.programs);
+  const { token } = useSelector((state) => state.auth.user);
 
   const { programId } = useParams();
 
@@ -23,6 +25,8 @@ const ProgramDetailsPage = () => {
       repsOrDurationPerSet: repsOrTimePerSetRef.current.value,
       timestamp: timestampRef.current.value,
     };
+
+    dispatch(sendExerciseDetail(newExercise, token, programId));
   };
 
   return (
