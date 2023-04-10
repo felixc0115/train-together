@@ -1,4 +1,4 @@
-import { heartIcon, eyeIcon } from "../assets/images/programIcon";
+import { heartIcon } from "../assets/images/programIcon";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { modifyFavoritePrograms } from "../store/user-actions";

@@ -51,3 +51,27 @@ export const sendProgramData = (newProgram, token) => {
     }
   };
 };
+
+export const sendExerciseDetail = (newExercise, token) => {
+  return async (dispatch) => {
+    const sendRequest = async () => {
+      const response = await fetch("/api/programs", {
+        method: "PATCH",
+        body: JSON.stringify(newExercise),
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Sending exercise detail failed");
+      }
+    };
+    try {
+      await sendRequest();
+      dispatch(allProgramsActions.addExerciseToProgram(newExercise));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};

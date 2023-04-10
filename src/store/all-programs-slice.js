@@ -14,6 +14,7 @@ const allPrograms = createSlice({
     addProgram(state, action) {
       state.programs.push(action.payload);
     },
+    addExerciseToProgram(state, action) {},
   },
 });
 
