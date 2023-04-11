@@ -10,7 +10,7 @@ import ProgramsPage from "./pages/Programs";
 import MyProgramsPage from "./pages/MyPrograms";
 import ProgramDetailsPage from "./pages/ProgramDetails";
 import LoginPage from "./pages/Login";
-import CreateAccountPage from "./pages/CreateAccount";
+// import CreateAccountPage from "./pages/CreateAccount";
 
 function App() {
   const user = useSelector((state) => state.auth.user);
@@ -23,7 +23,7 @@ function App() {
       children: [
         { path: "", element: <HomePage /> },
         { path: "login", element: <LoginPage /> },
-        { path: "create-account", element: <CreateAccountPage /> },
+        // { path: "create-account", element: <CreateAccountPage /> },
         {
           path: "programs",
           element: user ? <ProgramsPage /> : <Navigate to="/login" />,
