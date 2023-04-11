@@ -6,7 +6,6 @@ const MyProgramsPage = () => {
     (state) => state.auth.user.favoritedPrograms
   );
   const allPrograms = useSelector((state) => state.allPrograms.programs);
-  console.log(allPrograms);
 
   const filterFavoritePrograms = (id) => {
     return favoritedProgramIds.indexOf(id) !== -1;
@@ -15,10 +14,9 @@ const MyProgramsPage = () => {
   const favoritedPrograms = allPrograms.filter((program) =>
     filterFavoritePrograms(program._id)
   );
-  console.log(favoritedPrograms);
 
   return (
-    <div className="flex w-full gap-5 mx-auto my-7 flex-wrap justify-center">
+    <div className="flex w-full gap-5 mx-auto flex-wrap justify-center">
       {favoritedPrograms.map((program) => (
         <FavoritedProgramCard key={program["_id"]} program={program} />
       ))}

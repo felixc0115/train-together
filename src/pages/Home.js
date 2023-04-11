@@ -1,18 +1,17 @@
 import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo3.png";
 import { useSelector } from "react-redux";
-import ExerciseForm from "../components/AddExerciseButton";
 
 const HomePage = () => {
   const isLoggedIn = useSelector((state) => state.auth.user);
 
   return (
-    <div className="min-h-screen hero bg-base-100">
+    <div className="hero">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img className="h-100 w-80" src={logo} alt="logo" />
         <div>
           <h1 className="text-5xl font-bold">Together we are stronger!</h1>
-          <p className=" prose py-6">
+          <p className="pt-6 prose">
             Welcome to Train Together! We believe that everyone has the power to
             be a hero in their own fitness journey. Our app is here to help you
             unlock that potential and reach your goals. <br></br>
@@ -43,7 +42,6 @@ const HomePage = () => {
           )}
         </div>
       </div>
-      <ExerciseForm />
     </div>
   );
 };

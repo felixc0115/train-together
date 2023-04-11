@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useRef } from "react";
 import { sendExerciseDetail } from "../store/program-actions";
+import ExerciseForm from "../components/AddExerciseButton";
 
 const ProgramDetailsPage = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const ProgramDetailsPage = () => {
 
   return (
     <>
-      <div className="flex mx-auto my-7 flex-wrap justify-center prose prose-headings:font-serif prose-headings:text-black-700">
+      <div className="flex mx-auto  flex-wrap justify-center prose prose-headings:font-serif prose-headings:text-black-700">
         <h1 className="mb-1">{program.title}</h1>
         <p>
           added by: {program.username} <strong>|</strong> category:{" "}
@@ -40,8 +41,8 @@ const ProgramDetailsPage = () => {
         </p>
       </div>
       <iframe
-        width="1060"
-        height="500"
+        width="960"
+        height="400"
         className="m-auto"
         src={`https://www.youtube.com/embed/${
           program.youtubeLink.split("=")[1]
@@ -50,9 +51,9 @@ const ProgramDetailsPage = () => {
         allowFullScreen
         title="program video"
       />
-      <div className="m-auto mt-5">
+      <div className=" mt-5 w-min">
         <div className="form-control mb-3">
-          <label className="input-group input-group-s ml-5">
+          <label className="input-group ml-5">
             <span>exercise name</span>
             <input
               ref={nameRef}
@@ -67,14 +68,14 @@ const ProgramDetailsPage = () => {
               placeholder="3"
               className="input input-bordered"
             />
-            <span># of reps/time per set</span>
+            <span>reps/time per set</span>
             <input
               ref={repsOrTimePerSetRef}
               type="text"
               placeholder="15 reps, 30 seconds"
               className="input input-bordered"
             />
-            <span>exercise timestamp in video</span>
+            <span>timestamp</span>
             <input
               ref={timestampRef}
               type="text"
@@ -86,11 +87,11 @@ const ProgramDetailsPage = () => {
             </button>
           </label>
         </div>
-        <h2 className="ml-5">Exercises:</h2>
+        <h2 className="ml-5 underline">Exercises</h2>
         <ul>
           {program.exercises
             ? program.exercises.map((exercise, index) => (
-                <li key={index}>
+                <li className="ml-5" key={index}>
                   {exercise.name}: {exercise.sets}x for{" "}
                   {exercise.repsOrDurationPerSet} {`(${exercise.timestamp})`}
                 </li>
