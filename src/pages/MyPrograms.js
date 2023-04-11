@@ -5,6 +5,7 @@ const MyProgramsPage = () => {
   const favoritedProgramIds = useSelector(
     (state) => state.auth.user.favoritedPrograms
   );
+
   const allPrograms = useSelector((state) => state.allPrograms.programs);
 
   const filterFavoritePrograms = (id) => {

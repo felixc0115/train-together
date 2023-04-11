@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { sendUserLoginData } from "../store/user-actions";
 
 const LoginPage = () => {
@@ -11,8 +11,15 @@ const LoginPage = () => {
 
   const loginHandler = () => {
     dispatch(sendUserLoginData({ email, password }));
-    navigate("/my-programs");
   };
+
+  const user = useSelector((state) => state.auth.user);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/my-programs");
+    }
+  }, [user, navigate]);
 
   return (
     <div className="flex w-full justify-center">
