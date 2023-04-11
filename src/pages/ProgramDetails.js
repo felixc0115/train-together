@@ -30,6 +30,14 @@ const ProgramDetailsPage = () => {
     dispatch(sendExerciseDetail(newExercise, token, programId));
   };
 
+  const timeJumpHandler = (timestamp) => {
+    const iframe = document.querySelector("#video");
+    console.log(iframe);
+    const video = iframe.contentWindow.document.querySelector("video");
+    video.currentTime = 120;
+    video.play();
+  };
+
   return (
     <>
       <div className="flex mx-auto  flex-wrap justify-center prose prose-headings:font-serif prose-headings:text-black-700">
@@ -41,6 +49,7 @@ const ProgramDetailsPage = () => {
         </p>
       </div>
       <iframe
+        id="video"
         width="960"
         height="400"
         className="m-auto"
@@ -93,7 +102,10 @@ const ProgramDetailsPage = () => {
             ? program.exercises.map((exercise, index) => (
                 <li className="ml-5" key={index}>
                   {exercise.name}: {exercise.sets}x for{" "}
-                  {exercise.repsOrDurationPerSet} {`(${exercise.timestamp})`}
+                  {exercise.repsOrDurationPerSet}{" "}
+                  <span
+                    onClick={timeJumpHandler}
+                  >{`(${exercise.timestamp})`}</span>
                 </li>
               ))
             : ""}
