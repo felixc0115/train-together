@@ -15,7 +15,6 @@ const CreateAccountPage = () => {
     dispatch(sendUserSignupData({ email, password, username }));
     navigate("/my-programs");
   };
-
   return (
     <div className="flex w-full justify-center">
       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
