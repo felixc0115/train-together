@@ -34,14 +34,18 @@ const FavoritedProgramCard = ({ program }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{program.title}</h2>
         <div>
-          <div className="badge badge-outline  ">{program.category}</div>
-          <div className="badge badge-outline  ml-1">
-            {`${program.durationInMins}mins`}{" "}
+          <div className="mb-3">
+            <div className="badge badge-primary  ">{program.category}</div>
+            <div className="badge badge-secondary  ml-1">
+              {`${program.durationInMins}mins`}{" "}
+            </div>
+          </div>
+          <div>
+            <h2 className="card-title">{program.title}</h2>
+            <p>{program.description}</p>
           </div>
         </div>
-        <p>{program.description}</p>
         <div className="card-actions justify-end mt-5">
           {user && (
             <button onClick={removeFromFavoritesHandler} className="btn gap-2">
