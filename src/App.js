@@ -14,7 +14,6 @@ import CreateAccountPage from "./pages/Signup";
 
 function App() {
   const user = useSelector((state) => state.auth.user);
-  console.log(user);
 
   const router = createBrowserRouter([
     {
