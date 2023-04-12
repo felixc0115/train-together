@@ -22,7 +22,7 @@ app.use("/api/users", userRoutes);
 mongoose
   .connect(process.env.ATLAS_URI)
   .then(() => {
-    app.listen(process.env.BASE_URL, () => {
+    app.listen(process.env.PORT, () => {
       console.log("listening on port ", process.env.PORT);
       console.log("connected to database");
     });

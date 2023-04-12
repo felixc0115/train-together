@@ -34,7 +34,7 @@ export const sendUserSignupData = (userData) => {
 export const sendUserLoginData = (userData) => {
   return async (dispatch) => {
     const sendUserData = async () => {
-      const response = await fetch("/api/users/login", {
+      const response = await fetch("https://localhost:4000/api/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData),
