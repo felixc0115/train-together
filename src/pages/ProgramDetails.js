@@ -51,7 +51,7 @@ const ProgramDetailsPage = () => {
       <iframe
         id="video"
         width="960"
-        height="400"
+        height="500"
         className="m-auto"
         src={`https://www.youtube.com/embed/${
           program.youtubeLink.split("=")[1]
@@ -60,7 +60,7 @@ const ProgramDetailsPage = () => {
         allowFullScreen
         title="program video"
       />
-      <div className=" mt-5 w-min">
+      <div className=" mt-5 m-auto w-min">
         <div className="form-control mb-3">
           <label className="input-group ml-5">
             <span>exercise name</span>
