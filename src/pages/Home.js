@@ -11,7 +11,7 @@ const HomePage = () => {
         <img className="h-100 w-80" src={logo} alt="logo" />
         <div>
           <h1 className="text-5xl font-bold">Together we are stronger!</h1>
-          <p className="pt-6 prose">
+          <p className="pt-6 prose mb-5">
             Welcome to Train Together! We believe that everyone has the power to
             be a hero in their own fitness journey. Our app is here to help you
             unlock that potential and reach your goals. <br></br>
