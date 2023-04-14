@@ -13,7 +13,7 @@ const CreateAccountPage = () => {
   const createAccountHandler = (e) => {
     e.preventDefault();
     dispatch(sendUserSignupData({ email, password, username }));
-    navigate("/my-programs");
+    navigate("/programs");
   };
   return (
     <div className="flex w-full justify-center">
