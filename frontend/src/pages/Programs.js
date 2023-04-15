@@ -16,6 +16,9 @@ const ProgramsPage = () => {
 
   return (
     <>
+      <h2 className=" text-center font-bold normal-case text-2xl mb-2">
+        All Community Uploaded Programs
+      </h2>
       <AddProgramButton />
       <div className="flex w-full gap-5 mx-auto flex-wrap justify-center">
         {allPrograms.map((program) => (

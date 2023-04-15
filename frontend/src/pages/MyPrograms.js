@@ -17,11 +17,16 @@ const MyProgramsPage = () => {
   );
 
   return (
-    <div className="flex w-full gap-5 mx-auto flex-wrap justify-center">
-      {favoritedPrograms.map((program) => (
-        <FavoritedProgramCard key={program["_id"]} program={program} />
-      ))}
-    </div>
+    <>
+      <h2 className=" text-center font-bold normal-case text-2xl mb-2">
+        My Favorited Programs
+      </h2>
+      <div className="flex w-full gap-5 mx-auto flex-wrap justify-center">
+        {favoritedPrograms.map((program) => (
+          <FavoritedProgramCard key={program["_id"]} program={program} />
+        ))}
+      </div>
+    </>
   );
 };
 
