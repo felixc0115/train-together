@@ -1,36 +1,13 @@
 import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { useRef } from "react";
-import { sendExerciseDetail } from "../store/program-actions";
+import { useSelector } from "react-redux";
 import AddExerciseButton from "../components/AddExerciseButton";
 
 const ProgramDetailsPage = () => {
-  const dispatch = useDispatch();
-  const nameRef = useRef();
-  const setRef = useRef();
-  const repsOrTimePerSetRef = useRef();
-  const timestampRef = useRef();
   const programs = useSelector((state) => state.allPrograms.programs);
-  const { token } = useSelector((state) => state.auth.user);
 
   const { programId } = useParams();
 
   const program = programs.find((program) => program._id === programId);
-
-  const addExerciseHandler = (e) => {
-    e.preventDefault();
-
-    const newExercise = {
-      name: nameRef.current.value,
-      sets: setRef.current.value,
-      repsOrDurationPerSet: repsOrTimePerSetRef.current.value,
-      timestamp: timestampRef.current.value,
-    };
-
-    const allExercises = [...program.exercises, newExercise];
-
-    dispatch(sendExerciseDetail(allExercises, token, programId));
-  };
 
   const timeJumpHandler = (timestamp) => {
     const iframe = document.querySelector("#video");
@@ -84,57 +61,6 @@ const ProgramDetailsPage = () => {
         </div>
       </div>
       <AddExerciseButton programId={programId} />
-      {/* <div className=" mt-5 m-auto w-min">
-        <div className="form-control mb-3">
-          <label className="input-group ml-5">
-            <span>exercise name</span>
-            <input
-              ref={nameRef}
-              type="text"
-              placeholder="figure 4 stretch"
-              className="input input-bordered"
-            />
-            <span># of sets</span>
-            <input
-              ref={setRef}
-              type="text"
-              placeholder="3"
-              className="input input-bordered"
-            />
-            <span>reps/time per set</span>
-            <input
-              ref={repsOrTimePerSetRef}
-              type="text"
-              placeholder="15 reps, 30 seconds"
-              className="input input-bordered"
-            />
-            <span>timestamp</span>
-            <input
-              ref={timestampRef}
-              type="text"
-              placeholder="2:30"
-              className="input input-bordered"
-            />
-            <button onClick={addExerciseHandler} className="ml-3 btn">
-              Submit
-            </button>
-          </label>
-        </div>
-        <h2 className="ml-5 underline">Exercises</h2>
-        <ul>
-          {program.exercises
-            ? program.exercises.map((exercise, index) => (
-                <li className="ml-5" key={index}>
-                  {exercise.name}: {exercise.sets}x for{" "}
-                  {exercise.repsOrDurationPerSet}{" "}
-                  <span
-                    onClick={timeJumpHandler}
-                  >{`(${exercise.timestamp})`}</span>
-                </li>
-              ))
-            : ""}
-        </ul>
-      </div> */}
     </div>
   );
 };
