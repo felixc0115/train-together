@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useRef } from "react";
 import { sendExerciseDetail } from "../store/program-actions";
-import ExerciseForm from "../components/AddExerciseButton";
+import AddExerciseButton from "../components/AddExerciseButton";
 
 const ProgramDetailsPage = () => {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const ProgramDetailsPage = () => {
   };
 
   return (
-    <>
+    <div className="">
       <div className="flex mx-auto flex-wrap justify-center prose prose-headings:font-serif prose-headings:text-black-700">
         <h1 className="mb-0">{program.title}</h1>
         <p className="mt-0">
@@ -49,11 +49,11 @@ const ProgramDetailsPage = () => {
           duration: {program.durationInMins} mins | 20 people training
         </p>
       </div>
-      <div className="flex flex-col lg:flex-row mt-5 justify-center h-4/6 w-min border-double border-4 border-black-600 mx-auto">
+      <div className="flex flex-col lg:flex-row mt-5 justify-center w-min border-double border-4 border-black-600 mx-auto">
         <div className="grid h-32 card rounded-box">
           <iframe
             id="video"
-            width="960"
+            width="800"
             height="536"
             className="block"
             src={`https://www.youtube.com/embed/${
@@ -83,7 +83,7 @@ const ProgramDetailsPage = () => {
           </div>
         </div>
       </div>
-
+      <AddExerciseButton programId={programId} />
       {/* <div className=" mt-5 m-auto w-min">
         <div className="form-control mb-3">
           <label className="input-group ml-5">
@@ -135,7 +135,7 @@ const ProgramDetailsPage = () => {
             : ""}
         </ul>
       </div> */}
-    </>
+    </div>
   );
 };
 
