@@ -56,14 +56,14 @@ const AddExerciseButton = () => {
         Add Exercise
       </button>
       {isOpen && (
-        <div className="fixed bottom-20 right-1 bg-white p-4">
+        <div className="fixed bottom-20 right-0 bg-white p-4">
           <form onSubmit={addExerciseHandler}>
             <div className="mb-3">
               <label
                 className="block text-gray-700 font-bold mb-2"
                 htmlFor="exerciseName"
               >
-                Exercise Name
+                exercise name
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -80,7 +80,7 @@ const AddExerciseButton = () => {
                 className="block text-gray-700 font-bold mb-2"
                 htmlFor="sets"
               >
-                Sets
+                sets
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -97,7 +97,7 @@ const AddExerciseButton = () => {
                 className="block text-gray-700 font-bold mb-2"
                 htmlFor="repsOrTimePerSet"
               >
-                Reps or Time per Set
+                reps or time per set
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -114,7 +114,7 @@ const AddExerciseButton = () => {
                 className="block text-gray-700 font-bold mb-2"
                 htmlFor="timestamp"
               >
-                Timestamp
+                timestamp
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -126,7 +126,7 @@ const AddExerciseButton = () => {
               />
             </div>
             <button type="submit" className="btn btn-primary mr-1">
-              Submit
+              submit
             </button>
             <button
               onClick={() => {
@@ -134,7 +134,7 @@ const AddExerciseButton = () => {
               }}
               className="btn btn-accent"
             >
-              Close
+              close
             </button>
           </form>
         </div>

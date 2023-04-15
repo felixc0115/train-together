@@ -26,11 +26,11 @@ const ProgramDetailsPage = () => {
           duration: {program.durationInMins} mins | 20 people training
         </p>
       </div>
-      <div className="flex flex-col lg:flex-row mt-5 justify-center w-min border-double border-4 border-black-600 mx-auto">
-        <div className="grid h-32 card rounded-box">
+      <div className="flex flex-col lg:flex-row mt-5 justify-center w-min border-solid border-4 border-black rounded-lg mx-auto">
+        <div className="grid h-min card rounded-box">
           <iframe
             id="video"
-            width="800"
+            width="820"
             height="536"
             className="block"
             src={`https://www.youtube.com/embed/${
@@ -43,8 +43,8 @@ const ProgramDetailsPage = () => {
         </div>
         <div className="grid h-32 card rounded-box place-items-left">
           <div className="w-96">
-            <h2 className="ml-5 underline">Exercises</h2>
-            <ul>
+            <h2 className="ml-5 underline text-xl">exercises</h2>
+            <ul className="text-lg">
               {program.exercises
                 ? program.exercises.map((exercise, index) => (
                     <li className="ml-5" key={index}>
