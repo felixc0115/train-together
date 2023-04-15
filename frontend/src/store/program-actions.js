@@ -52,12 +52,12 @@ export const sendProgramData = (newProgram, token) => {
   };
 };
 
-export const sendExerciseDetail = (newExercise, token, programId) => {
+export const sendExerciseDetail = (allExercises, token, programId) => {
   return async (dispatch) => {
     const sendRequest = async () => {
       const response = await fetch(`/api/programs/${programId}`, {
         method: "PATCH",
-        body: JSON.stringify(newExercise),
+        body: JSON.stringify(allExercises),
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -71,7 +71,7 @@ export const sendExerciseDetail = (newExercise, token, programId) => {
     try {
       await sendRequest();
       dispatch(
-        allProgramsActions.addExerciseToProgram({ newExercise, programId })
+        allProgramsActions.addExerciseToProgram({ allExercises, programId })
       );
     } catch (error) {
       console.error(error);

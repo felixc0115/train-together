@@ -18,12 +18,7 @@ const allPrograms = createSlice({
       const programIndex = state.programs.findIndex(
         (program) => program._id === action.payload.programId
       );
-
-      if (!state.programs[programIndex].exercises) {
-        state.programs[programIndex].exercises = [action.payload.newExercise];
-      } else {
-        state.programs[programIndex].exercises.push(action.payload.newExercise);
-      }
+      state.programs[programIndex].exercises = action.payload.allExercises;
     },
   },
 });

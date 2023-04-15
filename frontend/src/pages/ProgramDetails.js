@@ -27,7 +27,9 @@ const ProgramDetailsPage = () => {
       timestamp: timestampRef.current.value,
     };
 
-    dispatch(sendExerciseDetail(newExercise, token, programId));
+    const allExercises = [...program.exercises, newExercise];
+
+    dispatch(sendExerciseDetail(allExercises, token, programId));
   };
 
   const timeJumpHandler = (timestamp) => {
@@ -40,27 +42,49 @@ const ProgramDetailsPage = () => {
 
   return (
     <>
-      <div className="flex mx-auto  flex-wrap justify-center prose prose-headings:font-serif prose-headings:text-black-700">
-        <h1 className="mb-1">{program.title}</h1>
-        <p>
-          added by: {program.username} <strong>|</strong> category:{" "}
-          {program.category} <strong>|</strong> duration:{" "}
-          {program.durationInMins} mins <strong>|</strong> 20 people training
+      <div className="flex mx-auto flex-wrap justify-center prose prose-headings:font-serif prose-headings:text-black-700">
+        <h1 className="mb-0">{program.title}</h1>
+        <p className="mt-0">
+          added by: {program.username} | category: {program.category} |
+          duration: {program.durationInMins} mins | 20 people training
         </p>
       </div>
-      <iframe
-        id="video"
-        width="960"
-        height="500"
-        className="m-auto"
-        src={`https://www.youtube.com/embed/${
-          program.youtubeLink.split("=")[1]
-        }`}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        title="program video"
-      />
-      <div className=" mt-5 m-auto w-min">
+      <div className="flex flex-col lg:flex-row mt-5 justify-center h-4/6 w-min border-double border-4 border-black-600 mx-auto">
+        <div className="grid h-32 card rounded-box">
+          <iframe
+            id="video"
+            width="960"
+            height="536"
+            className="block"
+            src={`https://www.youtube.com/embed/${
+              program.youtubeLink.split("=")[1]
+            }`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="program video"
+          />
+        </div>
+        <div className="grid h-32 card rounded-box place-items-left">
+          <div className="w-96">
+            <h2 className="ml-5 underline">Exercises</h2>
+            <ul>
+              {program.exercises
+                ? program.exercises.map((exercise, index) => (
+                    <li className="ml-5" key={index}>
+                      {exercise.name}: {exercise.sets}x for{" "}
+                      {exercise.repsOrDurationPerSet}{" "}
+                      <span
+                        onClick={timeJumpHandler}
+                      >{`(${exercise.timestamp})`}</span>
+                    </li>
+                  ))
+                : ""}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* <div className=" mt-5 m-auto w-min">
         <div className="form-control mb-3">
           <label className="input-group ml-5">
             <span>exercise name</span>
@@ -110,7 +134,7 @@ const ProgramDetailsPage = () => {
               ))
             : ""}
         </ul>
-      </div>
+      </div> */}
     </>
   );
 };
