@@ -6,6 +6,11 @@ const MainNavigation = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
   const totalPrograms = useSelector((state) => state.allPrograms.totalPrograms);
+  const favoritedPrograms = useSelector(
+    (state) => state.auth.user.favoritedPrograms
+  );
+
+  console.log(favoritedPrograms);
 
   const logoutHandler = () => {
     dispatch(authActions.logout());
@@ -42,7 +47,9 @@ const MainNavigation = () => {
             )}
             {user && (
               <li>
-                <NavLink to="my-programs">my programs</NavLink>
+                <NavLink to="my-programs">
+                  my programs({favoritedPrograms.length})
+                </NavLink>
               </li>
             )}
           </ul>
@@ -64,7 +71,7 @@ const MainNavigation = () => {
           {user && (
             <li>
               <NavLink className="font-mono" to="my-programs">
-                my programs
+                my programs({favoritedPrograms.length})
               </NavLink>
             </li>
           )}
