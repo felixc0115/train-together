@@ -6,7 +6,7 @@ const RootPage = () => {
   return (
     <div className="h-screen">
       <MainNavigation />
-      <main className="mt-10">
+      <main className=" h-min mt-20">
         <Outlet />
       </main>
       <Footer />
