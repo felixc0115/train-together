@@ -8,7 +8,6 @@ const AddExerciseButton = () => {
   const programs = useSelector((state) => state.allPrograms.programs);
   const { token } = useSelector((state) => state.auth.user);
   const { programId } = useParams();
-  console.log(programId);
 
   const [isOpen, setIsOpen] = useState(false);
   const [exerciseName, setExerciseName] = useState("");
@@ -21,13 +20,10 @@ const AddExerciseButton = () => {
   };
 
   const program = programs.find((program) => program._id === programId);
-  console.log(program);
 
   const addExerciseHandler = (e) => {
     e.preventDefault();
 
-    console.log(program);
-    console.log(programId);
     const newExercise = {
       name: exerciseName,
       sets,

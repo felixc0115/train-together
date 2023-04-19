@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 const RootPage = () => {
   return (
-    <div className="h-screen">
+    <div className="h-min">
       <MainNavigation />
       <main className=" h-min mt-20">
         <Outlet />
