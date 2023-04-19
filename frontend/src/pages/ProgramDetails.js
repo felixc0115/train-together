@@ -4,7 +4,7 @@ import AddExerciseButton from "../components/AddExerciseButton";
 
 const ProgramDetailsPage = () => {
   const programs = useSelector((state) => state.allPrograms.programs);
-
+  const { username } = useSelector((state) => state.auth.user);
   const { programId } = useParams();
 
   const program = programs.find((program) => program._id === programId);
@@ -60,7 +60,11 @@ const ProgramDetailsPage = () => {
           </div>
         </div>
       </div>
-      <AddExerciseButton programId={programId} />
+      {program.username === username ? (
+        <AddExerciseButton programId={programId} />
+      ) : (
+        ""
+      )}
     </div>
   );
 };
