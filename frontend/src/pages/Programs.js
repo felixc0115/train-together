@@ -16,7 +16,7 @@ const ProgramsPage = () => {
 
   return (
     <>
-      <h2 className=" text-center font-bold normal-case text-2xl mb-2">
+      <h2 className="text-center font-bold normal-case text-2xl mb-2">
         All Community Uploaded Programs
       </h2>
       <AddProgramButton />
