@@ -4,8 +4,9 @@ const Filter = ({ filterHandler }) => {
       <select
         onChange={filterHandler}
         className="select select-bordered w-full max-w-xs mb-3 mr-10"
+        defaultValue="default"
       >
-        <option disabled selected>
+        <option disabled value="default">
           filter by program type
         </option>
         <option value="show all">show all</option>
