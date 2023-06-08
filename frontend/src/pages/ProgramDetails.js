@@ -18,7 +18,7 @@ const ProgramDetailsPage = () => {
   };
 
   return (
-    <div className="">
+    <div>
       <div className="flex mx-auto flex-wrap justify-center prose prose-headings:font-serif prose-headings:text-black-700">
         <h1 className="mb-0">{program.title}</h1>
         <p className="mt-0">
@@ -27,7 +27,7 @@ const ProgramDetailsPage = () => {
         </p>
       </div>
       <div className="flex flex-col lg:flex-row mt-5 justify-center w-min border-solid border-4 border-black rounded-lg mx-auto">
-        <div className="grid h-min card rounded-box">
+        <div id="player" className="grid h-min card rounded-box">
           <iframe
             id="video"
             width="820"
