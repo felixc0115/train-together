@@ -23,8 +23,7 @@ export const sendUserSignupData = (userData) => {
     };
 
     try {
-      const userData = await sendUserData();
-      dispatch(authActions.login(userData));
+      await sendUserData();
     } catch (error) {
       console.error(error);
     }
