@@ -36,7 +36,7 @@ const HomePage = () => {
             the hero of your fitness journey.
           </p>
           {!isLoggedIn && (
-            <NavLink to="create-account" className="btn btn-secondary">
+            <NavLink to="/create-account" className="btn btn-secondary">
               Get Started
             </NavLink>
           )}
