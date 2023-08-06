@@ -36,8 +36,10 @@ const FavoritedProgramCard = ({ program }) => {
       <div className="card-body">
         <div>
           <div className="mb-3">
-            <div className="badge badge-primary  ">{program.category}</div>
-            <div className="badge badge-secondary  ml-1">
+            <div className="badge badge-primary font-bold ">
+              {program.category}
+            </div>
+            <div className="badge badge-secondary  font-bold ml-1">
               {`${program.durationInMins}mins`}{" "}
             </div>
           </div>
@@ -49,7 +51,7 @@ const FavoritedProgramCard = ({ program }) => {
         <div className="card-actions justify-end mt-5">
           {user && (
             <button onClick={removeFromFavoritesHandler} className="btn gap-2">
-              Remove
+              remove
             </button>
           )}
         </div>

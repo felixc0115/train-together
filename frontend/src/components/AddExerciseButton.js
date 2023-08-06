@@ -49,7 +49,7 @@ const AddExerciseButton = () => {
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
         onClick={toggleForm}
       >
-        Add Exercise
+        add exercise
       </button>
       {isOpen && (
         <div className="fixed bottom-20 right-0 bg-white p-4">

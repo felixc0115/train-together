@@ -19,7 +19,7 @@ const MyProgramsPage = () => {
   return (
     <>
       <h2 className=" text-center font-bold normal-case text-2xl mb-2">
-        My Favorited Programs
+        my favorited programs
       </h2>
       <div className="flex w-full gap-5 mx-auto flex-wrap justify-center">
         {favoritedPrograms.map((program) => (

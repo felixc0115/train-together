@@ -27,7 +27,7 @@ const ProgramsPage = () => {
   return (
     <>
       <h2 className="text-center font-bold normal-case text-2xl mb-2">
-        All Community Uploaded Programs
+        all community uploaded programs
       </h2>
       <Filter filterHandler={filterHandler} />
       <AddProgramButton />
