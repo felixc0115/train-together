@@ -30,11 +30,11 @@ const ProgramsPage = () => {
         all community uploaded programs
       </h2>
       <Filter filterHandler={filterHandler} />
-      <AddProgramButton />
-      <div className="flex w-full gap-5 mx-auto flex-wrap justify-center">
+      <div className="flex w-full gap-5 mx-auto flex-wrap justify-center h-fit">
         {programsToShow.map((program) => (
           <ProgramCard key={program["_id"]} program={program} />
         ))}
+        <AddProgramButton />
       </div>
     </>
   );

@@ -45,10 +45,10 @@ const ProgramCard = ({ program }) => {
             <h2 className="card-title underline underline-offset-8">
               {program.title}
             </h2>
-            <p className="text-base">{program.description}</p>
+            <p className="text-base h-10">{program.description}</p>
           </div>
         </div>
-        <div className="card-actions justify-end mt-5">
+        <div className="card-actions justify-end">
           {user && (
             <button
               onClick={addToFavoritesHandler}
