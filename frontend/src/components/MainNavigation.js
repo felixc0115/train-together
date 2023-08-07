@@ -80,7 +80,7 @@ const MainNavigation = () => {
           <NavLink
             to="/programs"
             onClick={logoutHandler}
-            className="btn ml-5 font-mono"
+            className="btn ml-5 font-mono lowercase"
           >
             logout{" "}
           </NavLink>

@@ -23,7 +23,7 @@ const FavoritedProgramCard = ({ program }) => {
   return (
     <div
       onClick={viewProgramHandler}
-      className="card w-80 bg-base-80 shadow-xl card-compact card-bordered cursor-pointer "
+      className="card w-80 bg-base-80 shadow-xl card-compact card-bordered cursor-pointer hover:bg-gray-200"
     >
       <figure>
         <img
@@ -40,17 +40,22 @@ const FavoritedProgramCard = ({ program }) => {
               {program.category}
             </div>
             <div className="badge badge-secondary  font-bold ml-1">
-              {`${program.durationInMins}mins`}{" "}
+              {`${program.durationInMins} mins`}{" "}
             </div>
           </div>
           <div>
-            <h2 className="card-title">{program.title}</h2>
-            <p>{program.description}</p>
+            <h2 className="card-title underline underline-offset-8">
+              {program.title}
+            </h2>
+            <p className="text-base">{program.description}</p>
           </div>
         </div>
         <div className="card-actions justify-end mt-5">
           {user && (
-            <button onClick={removeFromFavoritesHandler} className="btn gap-2">
+            <button
+              onClick={removeFromFavoritesHandler}
+              className="btn gap-2 lowercase"
+            >
               remove
             </button>
           )}

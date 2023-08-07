@@ -49,64 +49,75 @@ const AddProgramButton = () => {
           >
             ✕
           </label>
-          <h3 className="text-lg font-bold mb-5">add program details below!</h3>
-          <div className="form-control mb-3">
-            <label className="input-group input-group-s">
-              <span>program title</span>
-              <input
-                ref={titleRef}
-                type="text"
-                placeholder="hip mobility routine"
-                className="input input-bordered"
-              />
+          <h3 className="text-xl font-bold mb-5 text-center underline">
+            add program
+          </h3>
+
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text text-lg">title</span>
             </label>
+            <input
+              ref={titleRef}
+              type="text"
+              placeholder="hip mobility routine"
+              className="input input-bordered w-full"
+            />
           </div>
-          <div className="form-control mb-3">
-            <label className="input-group input-group-s">
-              <span>program description</span>
-              <input
-                ref={descriptionRef}
-                type="text"
-                placeholder="mobility routine to work on your hips!"
-                className="input input-bordered"
-              />
+
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text text-lg">description</span>
             </label>
+            <input
+              ref={descriptionRef}
+              type="text"
+              placeholder="mobility routine to work on your hips"
+              className="input input-bordered w-full"
+            />
           </div>
-          <div className="form-control mb-3">
-            <label className="input-group input-group-s">
-              <span>youtube link</span>
-              <input
-                ref={youtubeLinkRef}
-                type="text"
-                placeholder="https://www.youtube.com/watch?v=jj2AAH6jbHk"
-                className="input input-bordered"
-              />
+
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text text-lg">youtube link</span>
             </label>
+            <input
+              ref={youtubeLinkRef}
+              type="text"
+              placeholder="mobility routine to work on your hips"
+              className="input input-bordered w-full"
+            />
           </div>
-          <div className="form-control mb-3">
-            <label className="input-group input-group-s">
-              <span>program category</span>
-              <input
-                ref={categoryRef}
-                type="text"
-                placeholder="(e.g., mobility, stretching, workout, rehab)"
-                className="input input-bordered"
-              />
+
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text text-lg">category</span>
             </label>
+            <input
+              ref={categoryRef}
+              type="text"
+              placeholder="mobility"
+              className="input input-bordered w-full"
+            />
           </div>
-          <div className="form-control mb-3">
-            <label className="input-group input-group-s">
-              <span>program duration (mins)</span>
-              <input
-                ref={durationRef}
-                type="text"
-                placeholder="15"
-                className="input input-bordered"
-              />
+
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text text-lg">duration (mins)</span>
             </label>
+            <input
+              ref={durationRef}
+              type="text"
+              placeholder="15"
+              className="input input-bordered w-full"
+            />
           </div>
-          <button onClick={addProgramHandler} className="btn">
-            Add
+
+          <button
+            onClick={addProgramHandler}
+            className="btn lowercase w-full mt-5"
+          >
+            Add Program
           </button>
         </div>
       </div>

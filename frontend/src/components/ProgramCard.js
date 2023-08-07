@@ -38,12 +38,14 @@ const ProgramCard = ({ program }) => {
               {program.category}
             </div>
             <div className="badge badge-secondary  font-bold ml-1">
-              {`${program.durationInMins}mins`}{" "}
+              {`${program.durationInMins} minutes`}{" "}
             </div>
           </div>
           <div>
-            <h2 className="card-title">{program.title}</h2>
-            <p className="text-lg">{program.description}</p>
+            <h2 className="card-title underline underline-offset-8">
+              {program.title}
+            </h2>
+            <p className="text-base">{program.description}</p>
           </div>
         </div>
         <div className="card-actions justify-end mt-5">
