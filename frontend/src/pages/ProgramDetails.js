@@ -1,21 +1,37 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import AddExerciseButton from "../components/AddExerciseButton";
+import { useState, useEffect } from "react";
 
 const ProgramDetailsPage = () => {
   const programs = useSelector((state) => state.allPrograms.programs);
   const { username } = useSelector((state) => state.auth.user);
   const { programId } = useParams();
+  const [timestampLink, setTimestampLink] = useState(null);
 
   const program = programs.find((program) => program._id === programId);
 
-  const timeJumpHandler = (timestamp) => {
-    const iframe = document.querySelector("#video");
-    console.log(iframe);
-    const video = iframe.contentWindow.document.querySelector("video");
-    video.currentTime = 120;
-    video.play();
+  const timeJumpHandler = (timestamp, youtubeLink) => {
+    const timestampArray = timestamp.split(":");
+    console.log(timestampArray);
+    const timestampInSeconds =
+      parseInt(timestampArray[0]) * 60 + parseInt(timestampArray);
+    console.log(timestampInSeconds);
+    // const iframe = document.querySelector("#video");
+    // console.log(iframe);
+    // const video = iframe.contentWindow.document.querySelector("video");
+    // video.currentTime = 120;
+    // video.play();
+    setTimestampLink(
+      `https://www.youtube.com/embed/${
+        program.youtubeLink.split("=")[1]
+      }?t=${parseInt(timestampInSeconds)}`
+    );
   };
+
+  useEffect(() => {
+    console.log(timestampLink);
+  }, [timestampLink]);
 
   return (
     <div>
@@ -33,9 +49,12 @@ const ProgramDetailsPage = () => {
             width="820"
             height="536"
             className="block"
-            src={`https://www.youtube.com/embed/${
-              program.youtubeLink.split("=")[1]
-            }`}
+            src={
+              timestampLink ||
+              `https://www.youtube.com/embed/${
+                program.youtubeLink.split("=")[1]
+              }`
+            }
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             title="program video"
@@ -43,15 +62,20 @@ const ProgramDetailsPage = () => {
         </div>
         <div className="grid h-32 card rounded-box place-items-left">
           <div className="w-96">
-            <h2 className="ml-5 underline text-xl">exercises</h2>
+            <h2 className="ml-5 underline text-xl mb-5">exercises</h2>
             <ul className="text-lg">
               {program.exercises
                 ? program.exercises.map((exercise, index) => (
-                    <li className="ml-5" key={index}>
+                    <li className="ml-5 mb-1" key={index}>
                       {exercise.name}: {exercise.sets}x for{" "}
                       {exercise.repsOrDurationPerSet}{" "}
                       <span
-                        onClick={timeJumpHandler}
+                        onClick={() =>
+                          timeJumpHandler(
+                            exercise.timestamp,
+                            exercise.youtubeLink
+                          )
+                        }
                       >{`(${exercise.timestamp})`}</span>
                     </li>
                   ))

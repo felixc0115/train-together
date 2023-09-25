@@ -5,6 +5,7 @@ const app = express();
 const programRoutes = require("./routes/programs");
 const userRoutes = require("./routes/users");
 const path = require("path");
+const cors = require("cors");
 
 //middleware
 
@@ -12,6 +13,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname + "/public")));
 }
 
+app.use(cors());
 app.use(express.json());
 
 app.use((req, res, next) => {
